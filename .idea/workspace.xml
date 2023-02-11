@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2865b625-5cb6-45dc-873f-d8051b74f9d3" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Snowmelt flood 2.0.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/GBDT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/KNN.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/MachineLearn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/C.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/Colsample_bytree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/Kernel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/Learning_rate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/MLParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/Max_depth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/Max_features.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/Min_child_weight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/Min_samples_leaf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/Min_samples_split.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/N_estimators.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/N_neighbors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/Random_state.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/Reg_alpha.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/Reg_lambda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/Subsample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/Params/Weights.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/RF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/SVM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ML/XGBoost.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StartUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UI/SnowmeltDialog.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Lb6Sl7tf1aBPYwsWvP4qZ23if2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.scopes"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="2865b625-5cb6-45dc-873f-d8051b74f9d3" name="变更" comment="" />
+      <created>1676127438855</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676127438855</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

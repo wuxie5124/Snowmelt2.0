@@ -1,6 +1,7 @@
 package UI;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
@@ -25,6 +26,8 @@ public class SnowmeltDialog extends JFrame {
         initLayout();
         removeEvent();
         addEvent();
+        this.setSize(new Dimension(600,600));
+        this.setVisible(true);
     }
 
     private void initComponent() {

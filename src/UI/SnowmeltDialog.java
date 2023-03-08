@@ -26,7 +26,7 @@ public class SnowmeltDialog extends JFrame {
         initLayout();
         removeEvent();
         addEvent();
-        this.setSize(new Dimension(600,600));
+        this.setSize(new Dimension(500,500));
         this.setVisible(true);
     }
 

@@ -6,10 +6,14 @@ import java.util.ArrayList;
 
 //机器学习方法
 public abstract class MachineLearn {
+    public String getMlName() {
+        return mlName;
+    }
+
     protected String mlName;
     protected ArrayList<MLParam> mlParams;
 
-    ArrayList<MLParam> getMLParamList() {
+    public ArrayList<MLParam> getMLParamList() {
         return mlParams;
     }
 

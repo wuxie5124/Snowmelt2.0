@@ -6,6 +6,15 @@ public abstract class MLParam {
     protected String pararmName;
 
     protected String[] values;
+
+    public void setCurrentValue(String currentValue) {
+        this.currentValue = currentValue;
+    }
+
+    public String getParamName() {
+        return pararmName;
+    }
+
     protected String currentValue;
 
     public String[] getValues() {
@@ -23,5 +32,10 @@ public abstract class MLParam {
     public MLParam() {
         setValues();
         setName();
+        initValues();
+    }
+
+    private void initValues() {
+        this.currentValue = values[0];
     }
 }

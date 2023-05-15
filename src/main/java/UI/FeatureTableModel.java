@@ -1,7 +1,6 @@
 package UI;
 
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class FeatureTableModel extends DefaultTableModel {

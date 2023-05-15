@@ -1,7 +1,5 @@
 package ML;
 
-import ML.Params.MLParam;
-import ML.Params.N_estimators;
 import ML.Params.N_neighbors;
 import ML.Params.Weights;
 

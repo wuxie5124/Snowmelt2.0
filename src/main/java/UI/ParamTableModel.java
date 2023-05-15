@@ -1,11 +1,10 @@
 package UI;
 
 import ML.*;
+import ML.MachineLearn;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
-import java.util.HashMap;
-
 class ParamTableModel extends DefaultTableModel {
     //未启用
     private String[] colunmHeaders = new String[]{"编号", "方法"};

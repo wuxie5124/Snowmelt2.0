@@ -45,7 +45,7 @@ public class FirstTableModel extends DefaultTableModel {
 //                machineLearns.get(row).setLevel((int) aValue);
 //                break;
             case 1:
-                machineLearns.set(row,((MachineLearn) aValue));
+                machineLearns.set(row, ((MachineLearn) aValue));
                 break;
             default:
                 super.setValueAt(aValue, row, column);

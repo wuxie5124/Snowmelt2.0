@@ -1,7 +1,7 @@
 package UI;
 
+import ML.MachineLearn;
 import ML.*;
-import ML.Params.MLParam;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,40 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2865b625-5cb6-45dc-873f-d8051b74f9d3" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Snowmelt flood 2.0.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/GBDT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/KNN.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/MachineLearn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/C.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/Colsample_bytree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/Kernel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/Learning_rate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/MLParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/Max_depth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/Max_features.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/Min_child_weight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/Min_samples_leaf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/Min_samples_split.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/N_estimators.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/N_neighbors.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/Random_state.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/Reg_alpha.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/Reg_lambda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/Subsample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/Params/Weights.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/RF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/SVM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ML/XGBoost.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StartUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/SnowmeltDialog.java" afterDir="false" />
+    <list default="true" id="2865b625-5cb6-45dc-873f-d8051b74f9d3" name="变更" comment="大部分内容更新&#10;&#10;3.8 pc1">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_virtuald_curvesapi_1_06.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_compress_1_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_math3_3_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_4_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_4_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_4_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_3_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Snowmelt flood 2.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Snowmelt flood 2.0.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/GBDT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/GBDT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/KNN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/KNN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/MachineLearn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/MachineLearn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/C.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/C.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/Colsample_bytree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/Colsample_bytree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/Kernel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/Kernel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/Learning_rate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/Learning_rate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/MLParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/MLParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/Max_depth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/Max_depth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/Max_features.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/Max_features.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/Min_child_weight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/Min_child_weight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/Min_samples_leaf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/Min_samples_leaf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/Min_samples_split.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/Min_samples_split.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/N_estimators.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/N_estimators.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/N_neighbors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/N_neighbors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/Random_state.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/Random_state.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/Reg_alpha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/Reg_alpha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/Reg_lambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/Reg_lambda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/Subsample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/Subsample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/Params/Weights.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/Params/Weights.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/RF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/RF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/SVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/SVM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ML/XGBoost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ML/XGBoost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StartUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StartUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/FeatureTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/FeatureTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/FirstTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/FirstTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/LevelML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/LevelML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/PanelCalculate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelCalculate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/PanelFeatureSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelFeatureSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/PanelMethodConstruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelMethodConstruct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/PanelModelParamsSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelModelParamsSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/ParamAndValueTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/ParamAndValueTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/ParamData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/ParamData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/ParamTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/ParamTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/SnowmeltDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SnowmeltDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/myGridBagConstraints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/myGridBagConstraints.java" afterDir="false" />
     </list>
+    <list id="d8318fab-727e-40db-a51a-e1b0f770af99" name="not" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +73,20 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -61,26 +97,64 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.scopes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Facet&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="UI" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="UI" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="StartUp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StartUp" />
+      <module name="Snowmelt flood 2.0" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.StartUp" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
       <changelist id="2865b625-5cb6-45dc-873f-d8051b74f9d3" name="变更" comment="" />
+      <changelist id="d8318fab-727e-40db-a51a-e1b0f770af99" name="not" comment="" />
       <created>1676127438855</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1676127438855</updated>
     </task>
+    <task id="LOCAL-00001" summary="第二版第一次提交">
+      <created>1676144092094</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676144092094</updated>
+    </task>
+    <task id="LOCAL-00002" summary="大部分内容更新&#10;&#10;3.8 pc1">
+      <created>1678285779482</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678285779482</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -93,5 +167,30 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第二版第一次提交" />
+    <MESSAGE value="大部分内容更新&#10;&#10;3.8 pc1" />
+    <option name="LAST_COMMIT_MESSAGE" value="大部分内容更新&#10;&#10;3.8 pc1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/UI/SnowmeltDialog.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="levelMLS.get(5)" />
+        <watch expression="value" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Snowmelt_flood_2_0$StartUp.ic" NAME="StartUp 覆盖结果" MODIFIED="1678033674490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

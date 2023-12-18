@@ -100,12 +100,12 @@ public class SnowmeltDialog extends JFrame {
         this.add(this.panelContent,
                 new myGridBagConstraints(0, 0, 1, 1, 1, 1)
                         .setInset(5, 5, 5, 5)
-                        .setAnchor(GridBagConstraints.WEST)
+                        .setAnchor(GridBagConstraints.CENTER)
                         .setFill(GridBagConstraints.BOTH));
         this.panelContent.setLayout(new GridBagLayout());
         this.panelContent.add(this.labelRemind,
-                new myGridBagConstraints(0, 0, 0, 0, 1, 1)
-                        .setAnchor(GridBagConstraints.CENTER));
+                new myGridBagConstraints(0, 0, 1, 1, 0, 0)
+                        .setAnchor(GridBagConstraints.EAST));
     }
 
     private void removeEvent() {

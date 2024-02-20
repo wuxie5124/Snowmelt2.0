@@ -27,8 +27,8 @@ public class SnowmeltDialog extends JFrame {
     JMenuItem item7;
     public static MachineLearn[] MACHINE_LEARNS = new MachineLearn[]{new XGBoost(), new GBDT(), new SVM(), new RF(), new KNN()};
     public ArrayList<MachineLearn> machineLearns;
-    private ArrayList<String> checkedParams;
-
+//    private ArrayList<String> checkedParams;
+    public ArrayList<ParamData> paramData;
 
     public SnowmeltDialog() {
         initSource();
@@ -51,7 +51,7 @@ public class SnowmeltDialog extends JFrame {
         this.machineLearns.add(new SVM());
         this.machineLearns.add(new XGBoost());
 
-        this.checkedParams = new ArrayList<>();
+        this.paramData = new ArrayList<>();
     }
 
     private void initComponent() {
@@ -119,9 +119,9 @@ public class SnowmeltDialog extends JFrame {
         item5.addActionListener(menuItemAction);
     }
 
-    public void setCheckedParams(ArrayList<String> checkedParams) {
-        this.checkedParams = checkedParams;
-    }
+//    public void setCheckedParams(ArrayList<String> checkedParams) {
+//        this.checkedParams = checkedParams;
+//    }
 
     ActionListener menuItemAction = e -> {
         if (e.getSource() == item1) {
@@ -133,10 +133,10 @@ public class SnowmeltDialog extends JFrame {
             this.panelModelParamsSet = new PanelModelParamsSet(machineLearns);
             replace(this.panelContent, this.panelModelParamsSet);
         } else if (e.getSource() == item4) {
-            this.panelFeatureSet = new PanelFeatureSet(this,this.checkedParams);
+            this.panelFeatureSet = new PanelFeatureSet(this, this.paramData);
             replace(this.panelContent, this.panelFeatureSet);
         } else if (e.getSource() == item5) {
-            this.panelCalculate = new PanelCalculate(this.machineLearns,this.checkedParams);
+            this.panelCalculate = new PanelCalculate(this.machineLearns,this.paramData);
             replace(this.panelContent, this.panelCalculate);
         }
         this.revalidate();

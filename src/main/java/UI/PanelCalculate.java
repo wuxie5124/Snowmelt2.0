@@ -13,10 +13,10 @@ public class PanelCalculate extends JPanel {
     JButton jButton1;
     JButton jButton2;
     private JTextField jTextField;
-    private ArrayList<String> checkedParams;
-    public PanelCalculate(ArrayList<MachineLearn> machineLearns,ArrayList<String> checkedParams) {
+    private ArrayList<ParamData> featureParams;
+    public PanelCalculate(ArrayList<MachineLearn> machineLearns, ArrayList<ParamData> featureParams) {
         this.machineLearns = machineLearns;
-        this.checkedParams =checkedParams;
+        this.featureParams =featureParams;
         initComponent();
         initLayout();
         initListener();
@@ -34,6 +34,7 @@ public class PanelCalculate extends JPanel {
         this.add(jButton2, new myGridBagConstraints(0, 1, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
         this.add(jTextField, new myGridBagConstraints(1, 0, 1, 2, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER));
     }
+
     private void initListener() {
         jButton1.addActionListener(actionListener);
         jButton2.addActionListener(actionListener);
@@ -46,10 +47,11 @@ public class PanelCalculate extends JPanel {
                     System.out.println(mlParam.getParamName());
                 }
             }
-            for (String checkedParam : this.checkedParams) {
-                System.out.println(checkedParam);
+            for (ParamData featureParam : featureParams) {
+                if (featureParam.isCheck){
+                    System.out.println(featureParam.getParamName()); 
+                }
             }
-
 
         } else if (e.getSource() == jButton2) {
 

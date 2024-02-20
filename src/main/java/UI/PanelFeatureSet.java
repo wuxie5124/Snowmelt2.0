@@ -1,11 +1,16 @@
 package UI;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.EventObject;
+
+import static Tool.ExcelUtilities.getExcelHeader;
 
 public class PanelFeatureSet extends JPanel {
     private SnowmeltDialog snowmeltDialog;
@@ -15,17 +20,17 @@ public class PanelFeatureSet extends JPanel {
     JButton jButtonOK;
     JScrollPane jScrollPane;
     private JTable paramTable;
+    ArrayList<ParamData> paramData;
 
-    public PanelFeatureSet(SnowmeltDialog snowmeltDialog, ArrayList<String> checkedParams) {
+    public PanelFeatureSet(SnowmeltDialog snowmeltDialog, ArrayList<ParamData> paramData) {
+        this.paramData = paramData;
         this.snowmeltDialog = snowmeltDialog;
-        this.checkedParams = checkedParams;
         this.paramTableModel = new FeatureTableModel();
         initComponent();
         initRenderAndEditor();
         initLayout();
         initActionListener();
     }
-
     private void initRenderAndEditor() {
         paramTable.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(new JCheckBox()) {
             JCheckBox jCheckBox = new JCheckBox();
@@ -92,11 +97,11 @@ public class PanelFeatureSet extends JPanel {
         paramTable = new JTable();
         jScrollPane = new JScrollPane();
 
-        String[] param = new String[]{"XJAVHRR_av", "Vegetation", "Variance_c", "Slope", "SD", "Road_densi", "Relative_E", "Particle_s", "Elevation", "Distance_f", "Curve_numb", "Agricultur"};
-        ArrayList<ParamData> paramData = new ArrayList<>();
-        for (int i = 0; i < param.length; i++) {
-            paramData.add(new ParamData(FeatureTableModel.CHOOSE, param[i]));
-        }
+//        String[] param = new String[]{"XJAVHRR_av", "Vegetation", "Variance_c", "Slope", "SD", "Road_densi", "Relative_E", "Particle_s", "Elevation", "Distance_f", "Curve_numb", "Agricultur"};
+//        ArrayList<ParamData> paramData = new ArrayList<>();
+//        for (int i = 0; i < param.length; i++) {
+//            paramData.add(new ParamData(FeatureTableModel.CHOOSE, param[i]));
+//        }
         this.paramTableModel.setModelData(paramData);
         paramTable.setModel(paramTableModel);
         paramTable.getColumnModel().getColumn(0).setPreferredWidth(50);
@@ -106,12 +111,38 @@ public class PanelFeatureSet extends JPanel {
         jScrollPane.setPreferredSize(new Dimension(300, 300));
     }
 
-    private ArrayList<String> checkedParams;
+//    private ArrayList<String> checkedParams;
     ActionListener actionListenerPage3 = e -> {
         if (e.getSource() == jButtonRead) {
-        } else if (e.getSource() == jButtonOK){
-            this.checkedParams = this.paramTableModel.getCheckedParams();
-            snowmeltDialog.setCheckedParams(this.checkedParams);
+            FileChoose fileChoose = new FileChoose();
+            fileChoose.setFileFilter(new FileNameExtensionFilter("*.xls,*.xlsx","xls","xlsx"));
+//            fileChoose.setFileFilter(new FileFilter() {
+//                @Override
+//                public boolean accept(File f) {
+//                    if(f.getName().endsWith("xls") || f.getName().endsWith("xlsx")){
+//                        return true;
+//                    }else{
+//                        return false;
+//                    }
+//                }
+//                @Override
+//                public String getDescription() {
+//                    return ".xls";
+//                }
+//            });
+            if (fileChoose.getSTATE() == ChooseState.OK) {
+                File selectedFile = fileChoose.getSelectedFile();
+                String[] excelHeader = getExcelHeader(selectedFile.getPath());
+                this.paramData.clear();
+                for (int i = 0; i < excelHeader.length; i++) {
+                   if(i == excelHeader.length-1 && excelHeader[i] == "Level" )
+                   this.paramData.add(new ParamData(FeatureTableModel.CHOOSE, excelHeader[i]));
+                }
+                this.paramTableModel.fireTableDataChanged();
+            }
+        } else if (e.getSource() == jButtonOK) {
+//            this.checkedParams = this.paramTableModel.getCheckedParams();
+//            snowmeltDialog.setCheckedParams(this.checkedParams);
         }
     };
 }

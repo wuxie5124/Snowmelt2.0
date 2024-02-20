@@ -20,7 +20,6 @@ public class FeatureTableModel extends DefaultTableModel {
 
     }
 
-
     public void setModelData(ArrayList<ParamData> paramDatas){
         this.paramDatas = paramDatas;
     }

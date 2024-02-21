@@ -135,7 +135,9 @@ public class PanelFeatureSet extends JPanel {
                 String[] excelHeader = getExcelHeader(selectedFile.getPath());
                 this.paramData.clear();
                 for (int i = 0; i < excelHeader.length; i++) {
-                   if(i == excelHeader.length-1 && excelHeader[i] == "Level" )
+                   if(i == excelHeader.length-1 && excelHeader[i] == "Level" ){
+                       continue;
+                   }
                    this.paramData.add(new ParamData(FeatureTableModel.CHOOSE, excelHeader[i]));
                 }
                 this.paramTableModel.fireTableDataChanged();

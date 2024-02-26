@@ -29,6 +29,7 @@ public class SnowmeltDialog extends JFrame {
     public ArrayList<MachineLearn> machineLearns;
 //    private ArrayList<String> checkedParams;
     public ArrayList<ParamData> paramData;
+    public String excelFilePath;
 
     public SnowmeltDialog() {
         initSource();
@@ -133,7 +134,7 @@ public class SnowmeltDialog extends JFrame {
             this.panelModelParamsSet = new PanelModelParamsSet(machineLearns);
             replace(this.panelContent, this.panelModelParamsSet);
         } else if (e.getSource() == item4) {
-            this.panelFeatureSet = new PanelFeatureSet(this, this.paramData);
+            this.panelFeatureSet = new PanelFeatureSet(this, this.paramData,this.excelFilePath);
             replace(this.panelContent, this.panelFeatureSet);
         } else if (e.getSource() == item5) {
             this.panelCalculate = new PanelCalculate(this.machineLearns,this.paramData);

@@ -21,13 +21,11 @@ public class PanelFeatureSet extends JPanel {
     private JTable paramTable;
     ArrayList<ParamData> paramData;
 
-    String excelFilePath;
 
-    public PanelFeatureSet(SnowmeltDialog snowmeltDialog, ArrayList<ParamData> paramData, String excelFilePath) {
+    public PanelFeatureSet(SnowmeltDialog snowmeltDialog, ArrayList<ParamData> paramData) {
         this.paramData = paramData;
         this.snowmeltDialog = snowmeltDialog;
         this.paramTableModel = new FeatureTableModel();
-        this.excelFilePath= excelFilePath;
         initComponent();
         initRenderAndEditor();
         initLayout();
@@ -135,10 +133,10 @@ public class PanelFeatureSet extends JPanel {
             if (fileChoose.getSTATE() == ChooseState.OK) {
                 File selectedFile = fileChoose.getSelectedFile();
                 String[] excelHeader = getExcelHeader(selectedFile.getPath());
-                this.excelFilePath = selectedFile.getPath();
+                this.snowmeltDialog.excelFilePath = selectedFile.getPath();
                 this.paramData.clear();
                 for (int i = 0; i < excelHeader.length; i++) {
-                   if(i == excelHeader.length-1 && excelHeader[i] == "Level" ){
+                   if(i == excelHeader.length-1 && excelHeader[i].equals("Level")){
                        continue;
                    }
                    this.paramData.add(new ParamData(FeatureTableModel.CHOOSE, excelHeader[i]));

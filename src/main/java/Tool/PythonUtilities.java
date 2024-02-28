@@ -4,15 +4,14 @@ import ML.MachineLearn;
 import ML.Params.MLParam;
 import UI.ParamData;
 
+import javax.swing.*;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class PythonUtilities {
-
-    private final static String pythonPath = "D:\\Users\\zjm\\anaconda3\\envs\\mlearn\\python.exe";
-
     public static ArrayList<String> runMachineLearn(ArrayList<MachineLearn> mLearns, ArrayList<ParamData> paramDatas, String excelFilePath) {
         String strMachineLearns = "";
         String strParamData = "";
@@ -30,8 +29,12 @@ public class PythonUtilities {
                 strParamData+= "#" + paramData.getParamName();
             }
         }
+        String pythonPath = System.getProperty("user.dir");
+
+//        String pythonPath = "C:\\Users\\zhangjunmin\\Desktop\\snow";
+//        JOptionPane.showMessageDialog(null, pythonPath);
         String[] args1 = new String[]
-                {"D:\\Users\\zjm\\anaconda3\\envs\\mlearn\\python.exe", "C:\\Users\\zjm\\.spyder-py3\\mlearn\\getParamFromJAVA.py", strMachineLearns,strParamData,excelFilePath};
+                {pythonPath + "\\python\\mlearn\\python.exe", pythonPath + "\\python\\getParamFromJAVA.py", strMachineLearns,strParamData,excelFilePath};
         try {
             Process proc = Runtime.getRuntime().exec(args1);
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream(), "GBK"));

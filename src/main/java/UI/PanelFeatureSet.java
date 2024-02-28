@@ -116,20 +116,6 @@ public class PanelFeatureSet extends JPanel {
         if (e.getSource() == jButtonRead) {
             FileChoose fileChoose = new FileChoose();
             fileChoose.setFileFilter(new FileNameExtensionFilter("*.xls,*.xlsx","xls","xlsx"));
-//            fileChoose.setFileFilter(new FileFilter() {
-//                @Override
-//                public boolean accept(File f) {
-//                    if(f.getName().endsWith("xls") || f.getName().endsWith("xlsx")){
-//                        return true;
-//                    }else{
-//                        return false;
-//                    }
-//                }
-//                @Override
-//                public String getDescription() {
-//                    return ".xls";
-//                }
-//            });
             if (fileChoose.getSTATE() == ChooseState.OK) {
                 File selectedFile = fileChoose.getSelectedFile();
                 String[] excelHeader = getExcelHeader(selectedFile.getPath());

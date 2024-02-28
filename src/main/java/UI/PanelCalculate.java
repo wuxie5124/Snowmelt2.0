@@ -48,7 +48,11 @@ public class PanelCalculate extends JPanel {
     ActionListener actionListener = e -> {
         if (e.getSource() == jButton1) {
             resultStr = PythonUtilities.runMachineLearn(this.machineLearns, this.featureParams, this.excelFilePath);
-            jTextField.setText("模型训练完成，可以输出结果");
+            if (resultStr.size() >0){
+                jTextField.setText("模型训练完成，可以输出结果");
+            }else{
+                jTextField.setText("模型训练未完成，请检查");
+            }
         } else if (e.getSource() == jButton2) {
             String all = "";
             for (String s : resultStr) {

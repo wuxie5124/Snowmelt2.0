@@ -29,10 +29,10 @@ public class PythonUtilities {
                 strParamData+= "#" + paramData.getParamName();
             }
         }
-        String pythonPath = System.getProperty("user.dir");
+//        String pythonPath = System.getProperty("user.dir");
 
-//        String pythonPath = "C:\\Users\\zhangjunmin\\Desktop\\snow";
-//        JOptionPane.showMessageDialog(null, pythonPath);
+        String pythonPath = "C:\\Users\\zhangjunmin\\Desktop\\snow";
+        JOptionPane.showMessageDialog(null, pythonPath);
         String[] args1 = new String[]
                 {pythonPath + "\\python\\mlearn\\python.exe", pythonPath + "\\python\\getParamFromJAVA.py", strMachineLearns,strParamData,excelFilePath};
         try {

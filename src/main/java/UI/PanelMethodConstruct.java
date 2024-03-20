@@ -1,6 +1,7 @@
 package UI;
 
 import ML.*;
+import Model.FirstTableModel;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;

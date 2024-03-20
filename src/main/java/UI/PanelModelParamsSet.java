@@ -2,6 +2,7 @@ package UI;
 
 import ML.MachineLearn;
 import ML.Params.MLParam;
+import Model.ParamAndValueTableModel;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;

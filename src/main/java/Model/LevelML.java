@@ -1,4 +1,4 @@
-package UI;
+package Model;
 
 import ML.MachineLearn;
 

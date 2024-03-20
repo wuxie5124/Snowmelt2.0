@@ -1,21 +1,24 @@
-package UI;
+package Model;
 
+import ML.*;
 import ML.MachineLearn;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+class ParamTableModel extends DefaultTableModel {
+    //未启用
+    private String[] colunmHeaders = new String[]{"编号", "方法"};
 
-public class FirstTableModel extends DefaultTableModel {
-    private String[] colunmHeaders = new String[]{"方法", "参数"};
+    private MachineLearn[] machineLearns = new MachineLearn[]{new GBDT(),new KNN(),new RF(),new SVM(),new XGBoost()};
 
     public static final boolean CHOOSE = true;
 
     public static final boolean UNCHOOSE = false;
 
-    private ArrayList<MachineLearn> machineLearns = new ArrayList<>();
+    private ArrayList<MachineLearn> paramDatas;
 
-    public FirstTableModel(ArrayList<MachineLearn> machineLearns) {
-        this.machineLearns = machineLearns;
+    public ParamTableModel(ArrayList<MachineLearn> paramDatas) {
+        this.paramDatas = paramDatas;
     }
 
     @Override
@@ -25,7 +28,7 @@ public class FirstTableModel extends DefaultTableModel {
 
     @Override
     public int getRowCount() {
-        return machineLearns == null ? 0 : machineLearns.size();
+        return paramDatas == null ? 0 : paramDatas.size();
     }
 
     @Override
@@ -40,15 +43,10 @@ public class FirstTableModel extends DefaultTableModel {
 
     @Override
     public void setValueAt(Object aValue, int row, int column) {
-        switch (column) {
-//            case 0:
-//                machineLearns.get(row).setLevel((int) aValue);
-//                break;
-            case 1:
-                machineLearns.set(row, ((MachineLearn) aValue));
-                break;
-            default:
-                super.setValueAt(aValue, row, column);
+        if(column == 1){
+            for (MachineLearn machineLearn : machineLearns) {
+                if(machineLearn.getMlName() == aValue) paramDatas.set(row,machineLearn) ;
+            }
         }
         this.fireTableCellUpdated(row, column);
     }
@@ -57,9 +55,13 @@ public class FirstTableModel extends DefaultTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return rowIndex + 1;
+                if(rowIndex == paramDatas.size()-1){
+                    return "第二层方法1";
+                }else {
+                    return "第一次方法" + rowIndex;
+                }
             case 1:
-                return machineLearns.get(rowIndex).getMlName();
+                return paramDatas.get(rowIndex).getMlName();
             default:
                 return super.getValueAt(rowIndex, columnIndex);
         }

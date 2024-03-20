@@ -1,6 +1,7 @@
 package UI;
 
 import ML.MachineLearn;
+import Model.ParamAndTiff;
 import Tool.PythonUtilities;
 
 import javax.swing.*;
@@ -13,12 +14,12 @@ public class PanelCalculate extends JPanel {
     JButton jButton1;
     JButton jButton2;
     private JTextArea jTextField;
-    private ArrayList<ParamData> featureParams;
+    private ArrayList<ParamAndTiff> paramAndTiffs;
     private String excelFilePath;
     private ArrayList<String> resultStr;
-     public PanelCalculate(ArrayList<MachineLearn> machineLearns, ArrayList<ParamData> featureParams, String excelFilePath) {
+     public PanelCalculate(ArrayList<MachineLearn> machineLearns, ArrayList<ParamAndTiff> paramAndTiffs, String excelFilePath) {
         this.machineLearns = machineLearns;
-        this.featureParams =featureParams;
+        this.paramAndTiffs = paramAndTiffs;
         this.excelFilePath = excelFilePath;
         initComponent();
         initLayout();
@@ -47,9 +48,9 @@ public class PanelCalculate extends JPanel {
 
     ActionListener actionListener = e -> {
         if (e.getSource() == jButton1) {
-            resultStr = PythonUtilities.runMachineLearn(this.machineLearns, this.featureParams, this.excelFilePath);
+            resultStr = PythonUtilities.runMachineLearn(this.machineLearns, this.paramAndTiffs, this.excelFilePath);
             if (resultStr.size() >0){
-                jTextField.setText("模型训练完成，可以输出结果");
+                jTextField.setText("模型训练结果，可以输出结果");
             }else{
                 jTextField.setText("模型训练未完成，请检查");
             }

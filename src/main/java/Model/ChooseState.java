@@ -1,4 +1,4 @@
-package UI;
+package Model;
 
 public enum ChooseState {
     Cancel(1),

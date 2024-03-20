@@ -1,4 +1,4 @@
-package UI;
+package Model;
 
 public class ParamData {
     public Boolean getCheck() {

@@ -2,6 +2,8 @@ package UI;
 
 import ML.MachineLearn;
 import ML.*;
+import Model.ParamAndTiff;
+import Model.ParamData;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,6 +24,7 @@ public class SnowmeltDialog extends JFrame {
     JMenuItem item2;
     JMenuItem item3;
     JMenuItem item4;
+    JMenuItem item41;
     JMenuItem item5;
     JMenuItem item6;
     JMenuItem item7;
@@ -29,6 +32,7 @@ public class SnowmeltDialog extends JFrame {
     public ArrayList<MachineLearn> machineLearns;
 //    private ArrayList<String> checkedParams;
     public ArrayList<ParamData> paramData;
+    public ArrayList<ParamAndTiff> paramAndTiffs;
     public String excelFilePath;
 
     public SnowmeltDialog() {
@@ -53,6 +57,7 @@ public class SnowmeltDialog extends JFrame {
         this.machineLearns.add(new XGBoost());
 
         this.paramData = new ArrayList<>();
+        this.paramAndTiffs = new ArrayList<>();
     }
 
     private void initComponent() {
@@ -67,6 +72,7 @@ public class SnowmeltDialog extends JFrame {
         this.item2 = new JMenuItem("方法构建");
         this.item3 = new JMenuItem("模型参数设置");
         this.item4 = new JMenuItem("特征设置");
+        this.item41 = new JMenuItem("影像选择");
         this.item5 = new JMenuItem("方法执行");
         this.item6 = new JMenuItem("回归");
         this.item7 = new JMenuItem("分类");
@@ -84,6 +90,7 @@ public class SnowmeltDialog extends JFrame {
         menu1.add(item2);
         menu1.add(item3);
         menu1.add(item4);
+        menu1.add(item41);
         menu1.add(item5);
 
         //
@@ -117,6 +124,7 @@ public class SnowmeltDialog extends JFrame {
         item2.addActionListener(menuItemAction);
         item3.addActionListener(menuItemAction);
         item4.addActionListener(menuItemAction);
+        item41.addActionListener(menuItemAction);
         item5.addActionListener(menuItemAction);
     }
 
@@ -136,8 +144,11 @@ public class SnowmeltDialog extends JFrame {
         } else if (e.getSource() == item4) {
             this.panelFeatureSet = new PanelFeatureSet(this, this.paramData);
             replace(this.panelContent, this.panelFeatureSet);
+        } else if (e.getSource() == item41) {
+            this.panelFeatureSet = new PanelImgSetting(this, this.paramAndTiffs ,this.paramData);
+            replace(this.panelContent, this.panelFeatureSet);
         } else if (e.getSource() == item5) {
-            this.panelCalculate = new PanelCalculate(this.machineLearns,this.paramData,this.excelFilePath);
+            this.panelCalculate = new PanelCalculate(this.machineLearns,this.paramAndTiffs,this.excelFilePath);
             replace(this.panelContent, this.panelCalculate);
         }
         this.revalidate();

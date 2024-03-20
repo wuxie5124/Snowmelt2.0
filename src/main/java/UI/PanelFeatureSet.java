@@ -1,5 +1,10 @@
 package UI;
 
+import Model.ChooseState;
+import Model.FeatureTableModel;
+import Model.FileChoose;
+import Model.ParamData;
+
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;

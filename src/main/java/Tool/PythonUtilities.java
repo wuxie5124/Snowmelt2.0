@@ -72,13 +72,13 @@ public class PythonUtilities {
             strParamData += "#" + paramAndTiff.getParamName();
             strTifPath += "#%" + paramAndTiff.getTiffPath();
         }
-//        String pythonPath = System.getProperty("user.dir");
-
-//        String pythonPath = "C:\\Users\\zhangjunmin\\Desktop\\snow";
-        String pythonPath = "D:\\Users\\zjm\\anaconda3\\envs\\";
+        String pythonPath = System.getProperty("user.dir");
+//        String pythonPath = "D:\\Users\\zjm\\anaconda3\\envs\\";
         JOptionPane.showMessageDialog(null, pythonPath);
-        String[] args1 = new String[]
-                {pythonPath + "mlearn\\python.exe", "C:\\Users\\zjm\\.spyder-py3\\mlearn\\calculateTifFromJava.py", strMachineLearns,strParamData,strTifPath,excelFilePath};
+//        String[] args1 = new String[]
+//                {pythonPath + "\\Miniconda3\\python.exe", pythonPath + "\\python\\calculateTifFromJava.py", strMachineLearns,strParamData,strTifPath,excelFilePath};
+         String[] args1 = new String[]
+                {pythonPath + "\\Miniconda3\\python.exe", pythonPath + "\\python\\calculateTifFromJava.py", strMachineLearns,strParamData,strTifPath,excelFilePath};
         try {
             Process proc = Runtime.getRuntime().exec(args1);
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream(), "GBK"));

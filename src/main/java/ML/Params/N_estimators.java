@@ -3,11 +3,11 @@ package ML.Params;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class N_estimators extends MLParam{
+public class N_estimators extends MLParam {
 
     @Override
     public void setValues() {
-        this.values = new String[]{"Default", "50", "100", "200", "500", "1000"};
+        this.values = new String[]{"Default", "20", "50", "100", "120", "150", "180","200"};
     }
 
     @Override

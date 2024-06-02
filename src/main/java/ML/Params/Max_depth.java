@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Max_depth extends MLParam{
     @Override
     public void setValues() {
-        this.values = new String[]{"Default", "10", "20", "30", "50", "70", "80", "100"};
+        this.values = new String[]{"Default", "1", "2", "3", "5", "7", "9", "11"};
     }
 
     @Override

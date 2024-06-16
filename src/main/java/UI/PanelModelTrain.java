@@ -1,6 +1,10 @@
 package UI;
 
 import ML.MachineLearn;
+import Model.ParamData;
+import Tool.JsonUtilities;
+import Tool.PythonUtilities;
+import com.alibaba.fastjson.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,9 +21,12 @@ public class PanelModelTrain extends JPanel {
     private JTextArea jTextField;
     private String excelFilePath;
 
-    public PanelModelTrain(ArrayList<MachineLearn> machineLearns, String excelFilePath) {
+    private ArrayList<ParamData> paramData;
+
+    public PanelModelTrain(ArrayList<MachineLearn> machineLearns, String excelFilePath,ArrayList<ParamData> paramData) {
         this.machineLearns = machineLearns;
         this.excelFilePath = excelFilePath;
+        this.paramData = paramData;
         initComponent();
         initLayout();
         initListener();
@@ -41,7 +48,8 @@ public class PanelModelTrain extends JPanel {
         buttonPanel.add(buttonCustom, new myGridBagConstraints(1, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.WEST).setInset(2,2,2,2));
         buttonPanel.add(buttonChooseBest, new myGridBagConstraints(2, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.WEST).setInset(2,2,2,2));
         buttonPanel.add(buttonReadFile, new myGridBagConstraints(3, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.WEST).setInset(2,2,2,2));
-        buttonPanel.add(buttonSaveFile, new myGridBagConstraints(4, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.WEST).setInset(2,2,2,2));
+        //        默认保存搜寻结果
+        //        buttonPanel.add(buttonSaveFile, new myGridBagConstraints(4, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.WEST).setInset(2,2,2,2));
         this.add(buttonPanel,new myGridBagConstraints(0, 2, 1, 1, 1, 0).setFill(GridBagConstraints.HORIZONTAL).setAnchor(GridBagConstraints.CENTER).setInset(2,2,2,2));
     }
 
@@ -59,7 +67,11 @@ public class PanelModelTrain extends JPanel {
 
     ActionListener actionListener = e -> {
         if (e.getSource() == buttonGridSearch){
+            String jsonFilePath = PythonUtilities.runGridSearch(this.machineLearns, this.paramData, this.excelFilePath);
+            JSONObject jsonObject = JsonUtilities.readJsonFile(jsonFilePath);
+            if (jsonObject != null){
 
+            }
         }else if (e.getSource() == buttonCustom){
 
         }else if (e.getSource() == buttonChooseBest){

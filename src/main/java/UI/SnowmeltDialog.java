@@ -151,7 +151,7 @@ public class SnowmeltDialog extends JFrame {
             this.panelFeatureSet = new PanelFeatureSet(this, this.paramData);
             replace(this.panelContent, this.panelFeatureSet);
         } else if(e.getSource() == item5){
-            this.panelModelTrain = new PanelModelTrain(machineLearns,this.excelFilePath);
+            this.panelModelTrain = new PanelModelTrain(machineLearns,this.excelFilePath,this.paramData);
             replace(this.panelContent,this.panelModelTrain);
         } else if (e.getSource() == item6) {
             this.panelImgSetting = new PanelImgSetting(this, this.paramAndTiffs ,this.paramData);

@@ -97,7 +97,7 @@ public class PythonUtilities {
         return resultStr;
     }
 
-    public static ArrayList<String> runGridSearch(ArrayList<MachineLearn> mLearns ,ArrayList<ParamData> paramDatas,  String excelFilePath) {
+    public static String runGridSearch(ArrayList<MachineLearn> mLearns ,ArrayList<ParamData> paramDatas,  String excelFilePath) {
         String strMachineLearns = "";
         String strParamData = "";
         ArrayList<String> resultStr = new ArrayList<>();
@@ -119,16 +119,12 @@ public class PythonUtilities {
         String pythonPath = "C:\\Users\\zhangjunmin\\Desktop\\snow";
 //        String pythonPath = "D:\\Users\\zjm\\anaconda3\\envs\\";
         JOptionPane.showMessageDialog(null, pythonPath);
-        //方法是下面那个，这个已弃用
+        String jsonFilePath = pythonPath + "\\paramFile\\gridSearchParam.json";
         String[] args1 = new String[]
-                {pythonPath + "\\python\\mlearn\\python.exe", pythonPath + "\\python\\getParamFromJAVA.py", strMachineLearns,strParamData,excelFilePath};
+                {pythonPath + "\\python\\mlearn\\python.exe", pythonPath + "\\python\\getGridSearchResult.py", strMachineLearns,strParamData,excelFilePath,jsonFilePath};
         try {
             Process proc = Runtime.getRuntime().exec(args1);
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream(), "GBK"));
-            String line;
-            while ((line = in.readLine())!=null){
-                resultStr.add(line);
-            }
             in.close();
             proc.waitFor();
         } catch (IOException e) {
@@ -136,6 +132,6 @@ public class PythonUtilities {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        return resultStr;
+        return jsonFilePath;
     }
 }

@@ -7,6 +7,7 @@ import Model.FeatureTableModel;
 import Model.FileChoose;
 import Model.ParamData;
 import Tool.JsonUtilities;
+import Tool.PythonUtilities;
 import com.alibaba.fastjson.JSONObject;
 
 import javax.swing.*;
@@ -127,7 +128,7 @@ public class PanelModelTrain extends JPanel {
                 BigDecimal scoreBest = bestObject.getBigDecimal("score");
                 BigDecimal scoreDefault = machine.getJSONObject("default").getBigDecimal("score");
 
-                formatStr = MessageFormat.format(FORMATSTR, i + 1, type, paramDefaultStr, scoreDefault.toString().substring(0, 5), paramDestStr, scoreBest.toString().substring(0, 5));
+                formatStr = MessageFormat.format(FORMATSTR, i + 1, type, paramDefaultStr, scoreDefault.toString(), paramDestStr, scoreBest.toString());
                 jTextField.append(formatStr);
                 bestMachineLearn.add(machineLearn);
             }
@@ -135,9 +136,9 @@ public class PanelModelTrain extends JPanel {
     }
     ActionListener actionListener = e -> {
         if (e.getSource() == buttonGridSearch){
-//            String jsonFilePath = PythonUtilities.runGridSearch(this.machineLearns, this.paramData, this.excelFilePath);
-            String filepath = "C:\\Users\\zhangjunmin\\Desktop\\11\\gridSearchParam.json";
-            outputFile(filepath);
+            String jsonFilePath = PythonUtilities.runGridSearch(this.machineLearns, this.paramData, this.excelFilePath);
+//            String filepath = "C:\\Users\\zhangjunmin\\Desktop\\11\\gridSearchParam.json";
+            outputFile(jsonFilePath);
         }else if (e.getSource() == buttonCustom){
             this.machineLearns.clear();
             this.machineLearns.addAll(defaultMachineLearn);

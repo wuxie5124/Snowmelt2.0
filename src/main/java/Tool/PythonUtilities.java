@@ -74,12 +74,12 @@ public class PythonUtilities {
             strParamData += "#" + paramAndTiff.getParamName();
             strTifPath += "#%" + paramAndTiff.getTiffPath();
         }
-//        String pythonPath = System.getProperty("user.dir");
-        String pythonPath = "C:\\Users\\zhangjunmin\\Desktop\\snow";
+        String pythonPath = System.getProperty("user.dir");
+//        String pythonPath = "C:\\Users\\zhangjunmin\\Desktop\\snow";
 //        String pythonPath = "D:\\Users\\zjm\\anaconda3\\envs\\";
-        JOptionPane.showMessageDialog(null, pythonPath);
+//        JOptionPane.showMessageDialog(null, pythonPath);
          String[] args1 = new String[]
-                {pythonPath + "\\Miniconda3\\python.exe", pythonPath + "\\python\\calculateTifFromJava.py", strMachineLearns,strParamData,strTifPath,excelFilePath};
+                {pythonPath + "\\python\\Miniconda3\\python.exe", pythonPath + "\\python\\calculateTifFromJavaR.py", strMachineLearns,strParamData,strTifPath,excelFilePath};
         try {
             Process proc = Runtime.getRuntime().exec(args1);
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream(), "GBK"));
@@ -114,17 +114,21 @@ public class PythonUtilities {
                 strParamData+= "#" + paramData.getParamName();
             }
         }
-//        String pythonPath = System.getProperty("user.dir");
+        String pythonPath = System.getProperty("user.dir");
 
-        String pythonPath = "C:\\Users\\zhangjunmin\\Desktop\\snow";
+//        String pythonPath = "C:\\Users\\zhangjunmin\\Desktop\\snow";
 //        String pythonPath = "D:\\Users\\zjm\\anaconda3\\envs\\";
-        JOptionPane.showMessageDialog(null, pythonPath);
+//        JOptionPane.showMessageDialog(null, pythonPath);
         String jsonFilePath = pythonPath + "\\paramFile\\gridSearchParam.json";
         String[] args1 = new String[]
-                {pythonPath + "\\python\\mlearn\\python.exe", pythonPath + "\\python\\getGridSearchResult.py", strMachineLearns,strParamData,excelFilePath,jsonFilePath};
+                {pythonPath + "\\python\\Miniconda3\\python.exe", pythonPath + "\\python\\getGridSearchResultR.py", strMachineLearns,strParamData,excelFilePath,jsonFilePath};
         try {
             Process proc = Runtime.getRuntime().exec(args1);
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream(), "GBK"));
+            String line;
+            while ((line = in.readLine())!=null){
+                resultStr.add(line);
+            }
             in.close();
             proc.waitFor();
         } catch (IOException e) {

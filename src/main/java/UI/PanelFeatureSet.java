@@ -119,10 +119,10 @@ public class PanelFeatureSet extends JPanel {
 //    private ArrayList<String> checkedParams;
     ActionListener actionListenerPage3 = e -> {
         if (e.getSource() == jButtonRead) {
-            FileChoose fileChoose = new FileChoose();
-            fileChoose.setFileFilter(new FileNameExtensionFilter("*.xls,*.xlsx","xls","xlsx"));
-            if (fileChoose.getSTATE() == ChooseState.OK) {
-                File selectedFile = fileChoose.getSelectedFile();
+            JFileChooser fileChooser = new FileChoose();
+            fileChooser.setFileFilter(new FileNameExtensionFilter("*.xls,*.xlsx","xls","xlsx"));
+            if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
                 String[] excelHeader = getExcelHeader(selectedFile.getPath());
                 this.snowmeltDialog.excelFilePath = selectedFile.getPath();
                 this.paramData.clear();

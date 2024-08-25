@@ -2,22 +2,32 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Snowmelt flood 2.0:jar" />
+      <artifact name="Snowmeltflood2:jar2" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2865b625-5cb6-45dc-873f-d8051b74f9d3" name="变更" comment="python">
+    <list default="true" id="7af5735d-8529-4674-a758-e5a9e0a36122" name="变更" comment="6.1">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Snowmeltflood2_jar2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_62.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tool/StringUtilities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/JFileChoosePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/PanelPreProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Snowmelt_flood_2_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Snowmeltflood2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tool/ExcelUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tool/ExcelUtilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/FeatureTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/FeatureTableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelCalculate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelCalculate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Snowmelt flood 2.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Snowmeltflood2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tool/PythonUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tool/PythonUtilities.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelFeatureSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelFeatureSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelImgSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelImgSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelModelTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelModelTrain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/SnowmeltDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SnowmeltDialog.java" afterDir="false" />
     </list>
-    <list id="d8318fab-727e-40db-a51a-e1b0f770af99" name="not" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,32 +36,29 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="PUSH_TAGS">
-      <GitPushTagMode>
-        <option name="argument" value="--tags" />
-        <option name="title" value="All" />
-      </GitPushTagMode>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="main" />
-      </list>
-    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2Lb6Sl7tf1aBPYwsWvP4qZ23if2" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2cq5wd2UOYLvvEpBRrbgUiqIjB8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
   </component>
@@ -64,26 +71,17 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/zhangjunmin/Desktop&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;问题&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/zjm/IdeaProjects/Snowmelt2.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;工件&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.1362604&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2444219&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="UI" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="UI" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="StartUp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="StartUp" />
-      <module name="Snowmelt flood 2.0" />
+      <module name="Snowmeltflood2" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -91,62 +89,50 @@
     <recent_temporary>
       <list>
         <item itemvalue="应用程序.StartUp" />
+        <item itemvalue="应用程序.StartUp" />
+        <item itemvalue="应用程序.StartUp" />
+        <item itemvalue="应用程序.StartUp" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="2865b625-5cb6-45dc-873f-d8051b74f9d3" name="变更" comment="" />
-      <changelist id="d8318fab-727e-40db-a51a-e1b0f770af99" name="not" comment="" />
-      <created>1676127438855</created>
+      <changelist id="7af5735d-8529-4674-a758-e5a9e0a36122" name="变更" comment="" />
+      <created>1708826512281</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1676127438855</updated>
+      <updated>1708826512281</updated>
     </task>
-    <task id="LOCAL-00001" summary="第二版第一次提交">
-      <created>1676144092094</created>
+    <task id="LOCAL-00001" summary="226">
+      <created>1708963098678</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1676144092094</updated>
+      <updated>1708963098678</updated>
     </task>
-    <task id="LOCAL-00002" summary="大部分内容更新&#10;&#10;3.8 pc1">
-      <created>1678285779482</created>
+    <task id="LOCAL-00002" summary="229">
+      <created>1709137427494</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1678285779482</updated>
+      <updated>1709137427494</updated>
     </task>
-    <task id="LOCAL-00003" summary="添加pom">
-      <created>1684158721383</created>
+    <task id="LOCAL-00003" summary="320">
+      <created>1710936420603</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1684158721383</updated>
+      <updated>1710936420603</updated>
     </task>
-    <task id="LOCAL-00004" summary="添加pom">
-      <created>1684194755691</created>
+    <task id="LOCAL-00004" summary="6.1">
+      <created>1717225275485</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1684194755691</updated>
+      <updated>1717225275485</updated>
     </task>
-    <task id="LOCAL-00005" summary="文本布局">
-      <created>1702921085794</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1702921085794</updated>
-    </task>
-    <task id="LOCAL-00006" summary="python">
-      <created>1705857699005</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1705857699005</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,51 +140,73 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="snowmeltflood3" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="第二版第一次提交" />
-    <MESSAGE value="大部分内容更新&#10;&#10;3.8 pc1" />
-    <MESSAGE value="添加pom" />
-    <MESSAGE value="文本布局" />
-    <MESSAGE value="python" />
-    <option name="LAST_COMMIT_MESSAGE" value="python" />
+    <MESSAGE value="226" />
+    <MESSAGE value="229" />
+    <MESSAGE value="320" />
+    <MESSAGE value="6.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="6.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/UI/SnowmeltDialog.java</url>
-          <line>128</line>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Tool/PythonUtilities.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Tool/PythonUtilities.java</url>
+          <line>83</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/UI/PanelModelParamsSet.java</url>
-          <line>196</line>
+          <url>file://$PROJECT_DIR$/src/main/java/Tool/PythonUtilities.java</url>
+          <line>125</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/UI/JFileChoosePanel.java</url>
+          <line>49</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Tool/ExcelUtilities.java</url>
-          <line>38</line>
+          <url>file://$PROJECT_DIR$/src/main/java/UI/JFileChoosePanel.java</url>
+          <line>23</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/UI/PanelImgSetting.java</url>
+          <line>116</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/UI/PanelFeatureSet.java</url>
+          <line>121</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="excelHeader[0].split(&quot;TJN&quot;)" language="JAVA" />
-      </configuration>
-    </watches-manager>
-  </component>
-  <component name="XPathView.XPathProjectComponent">
-    <history />
-    <find-history />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Snowmelt_flood_2_0$StartUp.ic" NAME="StartUp 覆盖结果" MODIFIED="1684161315522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Snowmelt2_0$StartUp.ic" NAME="StartUp 覆盖结果" MODIFIED="1723973133475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

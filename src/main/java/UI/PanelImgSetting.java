@@ -129,14 +129,6 @@ public class PanelImgSetting extends JPanel {
                     }
                 }
             this.dataChooseTableModel.fireTableDataChanged();}
-//            if (file != null) {
-//                File[] files = file.listFiles();
-
-//                for (File subFile : files) {
-//                    String name = subFile.getName();
-//                    String nameWoEx = name.substring(0,name.lastIndexOf("."));
-//                }
-
         }
 
     };

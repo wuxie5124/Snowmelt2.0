@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
-    <artifactId>Snowmelt flood 2.0</artifactId>
+    <artifactId>Snowmeltflood2.0</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <dependency>

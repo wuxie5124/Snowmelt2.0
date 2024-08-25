@@ -15,6 +15,7 @@ public class SnowmeltDialog extends JFrame {
 
     JPanel panelContent;
     JPanel panelMethodConstruct;
+    JPanel panelPreprocess;
     JPanel panelModelParamsSet;
     JPanel panelFeatureSet;
 
@@ -23,13 +24,14 @@ public class SnowmeltDialog extends JFrame {
     JPanel panelCalculate;
     JLabel labelRemind;
 
-    JMenuItem item1;
-    JMenuItem item2;
-    JMenuItem item3;
-    JMenuItem item4;
-    JMenuItem item5;
-    JMenuItem item6;
-    JMenuItem item7;
+    JMenuItem itemClassAndRegressor;
+    JMenuItem itemPreprocess;
+    JMenuItem itemMethodConstruct;
+    JMenuItem itemModelParamsSe;
+    JMenuItem itemFeatureSet;
+    JMenuItem itemModelTrain;
+    JMenuItem itemImgSetting;
+    JMenuItem itemCalculate;
     JMenuItem item8;
     JMenuItem item9;
     public static MachineLearn[] MACHINE_LEARNS = new MachineLearn[]{new XGBoost(), new GBDT(), new SVM(), new RF(), new KNN()};
@@ -71,13 +73,14 @@ public class SnowmeltDialog extends JFrame {
 //        this.panelCalculate = new JPanel();
         this.labelRemind = new JLabel("欢迎使用");
 
-        this.item1 = new JMenu("预测类型");
-        this.item2 = new JMenuItem("方法构建");
-        this.item3 = new JMenuItem("模型参数设置");
-        this.item4 = new JMenuItem("特征设置");
-        this.item5 = new JMenuItem("模型参数选择");
-        this.item6 = new JMenuItem("影像选择");
-        this.item7 = new JMenuItem("方法执行");
+        this.itemClassAndRegressor = new JMenu("预测类型");
+        this.itemPreprocess = new JMenuItem("预处理");
+        this.itemMethodConstruct = new JMenuItem("方法构建");
+        this.itemModelParamsSe = new JMenuItem("模型参数设置");
+        this.itemFeatureSet = new JMenuItem("特征设置");
+        this.itemModelTrain = new JMenuItem("模型参数选择");
+        this.itemImgSetting = new JMenuItem("影像选择");
+        this.itemCalculate = new JMenuItem("方法执行");
         this.item8 = new JMenuItem("回归");
         this.item9 = new JMenuItem("分类");
 
@@ -85,22 +88,23 @@ public class SnowmeltDialog extends JFrame {
         JMenu menu1 = new JMenu("融雪洪灾点预测");// 创建菜单对象
 
         menuBar.add(menu1);
-        item1.add(item8);
-        item1.add(item9);
+        itemClassAndRegressor.add(item8);
+        itemClassAndRegressor.add(item9);
 
-        menu1.add(item1);
+        menu1.add(itemClassAndRegressor);
         menu1.addSeparator();//在菜单项中间添加分界线
 
-        menu1.add(item2);
-        menu1.add(item3);
-        menu1.add(item4);
-        menu1.add(item5);
-        menu1.add(item6);
-        menu1.add(item7);
+        menu1.add(itemPreprocess);
+        menu1.add(itemMethodConstruct);
+        menu1.add(itemModelParamsSe);
+        menu1.add(itemFeatureSet);
+        menu1.add(itemModelTrain);
+        menu1.add(itemImgSetting);
+        menu1.add(itemCalculate);
 
         //
-        item2.setAccelerator(KeyStroke.getKeyStroke('A'));
-        item3.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_MASK));//添加热键
+        itemMethodConstruct.setAccelerator(KeyStroke.getKeyStroke('A'));
+        itemModelParamsSe.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_MASK));//添加热键
         this.setJMenuBar(menuBar);
     }
 
@@ -126,12 +130,13 @@ public class SnowmeltDialog extends JFrame {
     }
 
     private void addEvent() {
-        item2.addActionListener(menuItemAction);
-        item3.addActionListener(menuItemAction);
-        item4.addActionListener(menuItemAction);
-        item5.addActionListener(menuItemAction);
-        item6.addActionListener(menuItemAction);
-        item7.addActionListener(menuItemAction);
+        itemMethodConstruct.addActionListener(menuItemAction);
+        itemPreprocess.addActionListener(menuItemAction);
+        itemModelParamsSe.addActionListener(menuItemAction);
+        itemFeatureSet.addActionListener(menuItemAction);
+        itemModelTrain.addActionListener(menuItemAction);
+        itemImgSetting.addActionListener(menuItemAction);
+        itemCalculate.addActionListener(menuItemAction);
     }
 
 //    public void setCheckedParams(ArrayList<String> checkedParams) {
@@ -139,24 +144,27 @@ public class SnowmeltDialog extends JFrame {
 //    }
 
     ActionListener menuItemAction = e -> {
-        if (e.getSource() == item1) {
+        if (e.getSource() == itemClassAndRegressor) {
 
-        } else if (e.getSource() == item2) {
+        }else if(e.getSource() == itemPreprocess){
+            this.panelPreprocess = new PanelPreProcess();
+            replace(this.panelContent,this.panelPreprocess);
+        } else if (e.getSource() == itemMethodConstruct) {
             this.panelMethodConstruct = new PanelMethodConstruct(machineLearns);
             replace(this.panelContent, this.panelMethodConstruct);
-        } else if (e.getSource() == item3) {
+        } else if (e.getSource() == itemModelParamsSe) {
             this.panelModelParamsSet = new PanelModelParamsSet(machineLearns);
             replace(this.panelContent, this.panelModelParamsSet);
-        } else if (e.getSource() == item4) {
+        } else if (e.getSource() == itemFeatureSet) {
             this.panelFeatureSet = new PanelFeatureSet(this, this.paramData);
             replace(this.panelContent, this.panelFeatureSet);
-        } else if(e.getSource() == item5){
+        } else if(e.getSource() == itemModelTrain){
             this.panelModelTrain = new PanelModelTrain(machineLearns,this.excelFilePath,this.paramData);
             replace(this.panelContent,this.panelModelTrain);
-        } else if (e.getSource() == item6) {
+        } else if (e.getSource() == itemImgSetting) {
             this.panelImgSetting = new PanelImgSetting(this, this.paramAndTiffs ,this.paramData);
             replace(this.panelContent, this.panelImgSetting);
-        }  else if (e.getSource() == item7) {
+        }  else if (e.getSource() == itemCalculate) {
             this.panelCalculate = new PanelCalculate(this.machineLearns,this.paramAndTiffs,this.excelFilePath);
             replace(this.panelContent, this.panelCalculate);
         }

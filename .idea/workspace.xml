@@ -9,25 +9,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7af5735d-8529-4674-a758-e5a9e0a36122" name="变更" comment="6.1">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Snowmeltflood2_jar2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_62.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Tool/StringUtilities.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/JFileChoosePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/PanelPreProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Snowmelt_flood_2_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Snowmeltflood2_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="2865b625-5cb6-45dc-873f-d8051b74f9d3" name="变更" comment="python">
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/PanelConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_62.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snowmelt flood 2.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Snowmeltflood2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tool/PythonUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tool/PythonUtilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/JFileChoosePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/JFileChoosePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelCalculate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelCalculate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelFeatureSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelFeatureSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelImgSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelImgSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelMethodConstruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelMethodConstruct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelModelParamsSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelModelParamsSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelModelTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelModelTrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelPreProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelPreProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/SnowmeltDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SnowmeltDialog.java" afterDir="false" />
     </list>
+    <list id="d8318fab-727e-40db-a51a-e1b0f770af99" name="not" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,7 +71,7 @@
     &quot;project.structure.last.edited&quot;: &quot;工件&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.1362604&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2444219&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
 }</component>
   <component name="RunManager">
@@ -92,13 +88,14 @@
         <item itemvalue="应用程序.StartUp" />
         <item itemvalue="应用程序.StartUp" />
         <item itemvalue="应用程序.StartUp" />
+        <item itemvalue="应用程序.StartUp" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="7af5735d-8529-4674-a758-e5a9e0a36122" name="变更" comment="" />
+      <changelist id="2865b625-5cb6-45dc-873f-d8051b74f9d3" name="变更" comment="python" />
       <created>1708826512281</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -189,24 +186,30 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/UI/JFileChoosePanel.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/UI/PanelImgSetting.java</url>
-          <line>116</line>
+          <line>121</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/UI/PanelFeatureSet.java</url>
-          <line>121</line>
+          <line>126</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/UI/SnowmeltDialog.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="excelHeader[0].split(&quot;TJN&quot;)" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Snowmelt2_0$StartUp.ic" NAME="StartUp 覆盖结果" MODIFIED="1723973133475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Snowmelt_flood_2_0$StartUp.ic" NAME="StartUp 覆盖结果" MODIFIED="1684161315522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Snowmelt2_0$StartUp.ic" NAME="StartUp 覆盖结果" MODIFIED="1724605092662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

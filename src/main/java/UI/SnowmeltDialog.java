@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class SnowmeltDialog extends JFrame {
 
     JPanel panelContent;
+    PanelConsole panelConsole;
     JPanel panelMethodConstruct;
     JPanel panelPreprocess;
     JPanel panelModelParamsSet;
@@ -48,7 +49,7 @@ public class SnowmeltDialog extends JFrame {
         initLayout();
         removeEvent();
         addEvent();
-        this.setSize(600, 500);
+        this.setSize(650, 600);
         this.setTitle("基于STACKING模型融雪洪灾预测模型");
         this.setVisible(true);
     }
@@ -68,11 +69,8 @@ public class SnowmeltDialog extends JFrame {
 
     private void initComponent() {
         this.panelContent = new JPanel();
-//        this.panelModelParamsSet = new JPanel();
-//        this.panelFeatureSet = new JPanel();
-//        this.panelCalculate = new JPanel();
+        this.panelConsole = new PanelConsole();
         this.labelRemind = new JLabel("欢迎使用");
-
         this.itemClassAndRegressor = new JMenu("预测类型");
         this.itemPreprocess = new JMenuItem("预处理");
         this.itemMethodConstruct = new JMenuItem("方法构建");
@@ -105,7 +103,7 @@ public class SnowmeltDialog extends JFrame {
         //
         itemMethodConstruct.setAccelerator(KeyStroke.getKeyStroke('A'));
         itemModelParamsSe.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_MASK));//添加热键
-        this.setJMenuBar(menuBar);
+        this.setJMenuBar(   menuBar);
     }
 
     private void initComponentStatus() {
@@ -115,14 +113,23 @@ public class SnowmeltDialog extends JFrame {
     private void initLayout() {
         this.setLayout(new GridBagLayout());
         this.add(this.panelContent,
-                new myGridBagConstraints(0, 0, 1, 1, 1, 1)
+                new myGridBagConstraints(0, 0, 1, 1, 1, 3)
                         .setInset(5, 5, 5, 5)
                         .setAnchor(GridBagConstraints.CENTER)
                         .setFill(GridBagConstraints.BOTH));
+        this.add(this.panelConsole,
+                new myGridBagConstraints(0, 1, 1, 1, 1, 1)
+                        .setInset(5, 5, 5, 5)
+                        .setAnchor(GridBagConstraints.SOUTH)
+                        .setFill(GridBagConstraints.BOTH)
+        );
+
         this.panelContent.setLayout(new GridBagLayout());
         this.panelContent.add(this.labelRemind,
                 new myGridBagConstraints(0, 0, 1, 1, 0, 0)
                         .setAnchor(GridBagConstraints.EAST));
+        this.panelContent.setPreferredSize(new Dimension(600,400));
+        this.panelContent.setPreferredSize(new Dimension(600,200));
     }
 
     private void removeEvent() {
@@ -176,7 +183,7 @@ public class SnowmeltDialog extends JFrame {
         parentPanel.removeAll();
         parentPanel.setLayout(new GridBagLayout());
         parentPanel.add(jComponent,
-                new myGridBagConstraints(0, 0, 0, 0, 1, 1)
+                new myGridBagConstraints(0, 0, 1, 1, 1, 1)
                         .setAnchor(GridBagConstraints.CENTER));
     }
 

@@ -22,11 +22,10 @@ public class PanelFeatureSet extends JPanel {
     JPanel jPanelSub;
     JButton jButtonRead;
     JButton jButtonOK;
+    JButton jButtonClear;
     JScrollPane jScrollPane;
     private JTable paramTable;
     ArrayList<ParamData> paramData;
-
-
     public PanelFeatureSet(SnowmeltDialog snowmeltDialog, ArrayList<ParamData> paramData) {
         this.paramData = paramData;
         this.snowmeltDialog = snowmeltDialog;
@@ -35,6 +34,7 @@ public class PanelFeatureSet extends JPanel {
         initRenderAndEditor();
         initLayout();
         initActionListener();
+        this.setBorder(BorderFactory.createTitledBorder("特征设置"));
     }
     private void initRenderAndEditor() {
         paramTable.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(new JCheckBox()) {
@@ -83,20 +83,25 @@ public class PanelFeatureSet extends JPanel {
         this.setLayout(gridBagLayout);
         jPanelSub.setLayout(new GridBagLayout());
         this.add(jScrollPane, new myGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(10, 20, 0, 20));
-        this.add(jPanelSub, new myGridBagConstraints(0, 4, 1, 1, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(10, 20, 20, 20));
+        this.add(jPanelSub, new myGridBagConstraints(0, 4, 1, 1, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(10, 20, 0, 20));
         jPanelSub.add(jButtonRead, new myGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
-        jPanelSub.add(jButtonOK, new myGridBagConstraints(1, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+//        jPanelSub.add(jButtonOK, new myGridBagConstraints(1, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+        jPanelSub.add(jButtonClear, new myGridBagConstraints(1, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
 
     }
 
     private void initActionListener() {
         jButtonRead.addActionListener(actionListenerPage3);
         jButtonOK.addActionListener(actionListenerPage3);
+        jButtonClear.addActionListener(actionListenerPage3);
     }
 
     private void initComponent() {
-        jButtonRead = new JButton("读取");
+        jButtonRead = new JButton("读取特征数据");
+        jButtonRead.setPreferredSize(new Dimension(120,25));
         jButtonOK = new JButton("确定");
+        jButtonClear = new JButton("清除数据");
+        jButtonClear.setPreferredSize(new Dimension(120,25));
         jPanelSub = new JPanel();
 
         paramTable = new JTable();
@@ -137,6 +142,9 @@ public class PanelFeatureSet extends JPanel {
         } else if (e.getSource() == jButtonOK) {
 //            this.checkedParams = this.paramTableModel.getCheckedParams();
 //            snowmeltDialog.setCheckedParams(this.checkedParams);
+        }else if (e.getSource() == jButtonClear){
+            this.paramData.clear();
+            this.paramTableModel.fireTableDataChanged();
         }
     };
 }

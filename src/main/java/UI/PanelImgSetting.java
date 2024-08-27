@@ -21,6 +21,7 @@ public class PanelImgSetting extends JPanel {
     DataChooseTableModel dataChooseTableModel;
     JButton jButtonRead;
     JButton jButtonOK;
+    JButton jButtonClear;
     JPanel jPanelSub;
 
     HashMap<String, String> paramMap;
@@ -35,6 +36,7 @@ public class PanelImgSetting extends JPanel {
         initRenderAndEditor();
         initLayout();
         initActionListener();
+        this.setBorder(BorderFactory.createTitledBorder("影像选择"));
     }
 
     private void initHashMap() {
@@ -74,16 +76,18 @@ public class PanelImgSetting extends JPanel {
     private void initActionListener() {
         jButtonRead.addActionListener(actionListenerPage4);
         jButtonOK.addActionListener(actionListenerPage4);
+        jButtonClear.addActionListener(actionListenerPage4);
     }
 
     private void initLayout() {
         GridBagLayout gridBagLayout = new GridBagLayout();
         this.setLayout(gridBagLayout);
         jPanelSub.setLayout(new GridBagLayout());
-        this.add(jScrollPane, new myGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(10, 20, 0, 20));
-        this.add(jPanelSub, new myGridBagConstraints(0, 4, 1, 1, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(10, 20, 20, 20));
+        this.add(jScrollPane, new myGridBagConstraints(0, 0, 1, 4, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(10, 10, 0, 10));
+        this.add(jPanelSub, new myGridBagConstraints(0, 4, 1, 1, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(10, 10, 0, 10));
         jPanelSub.add(jButtonRead, new myGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
-        jPanelSub.add(jButtonOK, new myGridBagConstraints(1, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+//        jPanelSub.add(jButtonOK, new myGridBagConstraints(1, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+        jPanelSub.add(jButtonClear, new myGridBagConstraints(1, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
 
     }
 
@@ -96,8 +100,9 @@ public class PanelImgSetting extends JPanel {
     }
 
     private void initComponent() {
-        jButtonRead = new JButton("读取");
+        jButtonRead = new JButton("读取影像文件");
         jButtonOK = new JButton("确定");
+        jButtonClear = new JButton("清除选择");
         jPanelSub = new JPanel();
 
         tifTable = new JTable();
@@ -119,6 +124,7 @@ public class PanelImgSetting extends JPanel {
             if (fileChoose.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = fileChoose.getSelectedFile();
                 String path = selectedFile.getPath();
+                paramAndTiffs.clear();
                 for (ParamData paramData : paramDatas) {
                     if (paramData.getCheck()) {
                         String tifName = paramMap.get(paramData.getParamName());
@@ -129,7 +135,9 @@ public class PanelImgSetting extends JPanel {
                     }
                 }
             this.dataChooseTableModel.fireTableDataChanged();}
+        }else if (e.getSource() == jButtonClear){
+            paramAndTiffs.clear();
+            this.dataChooseTableModel.fireTableDataChanged();
         }
-
     };
 }

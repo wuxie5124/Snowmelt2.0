@@ -11,6 +11,9 @@ import java.util.EventObject;
 
 import static UI.SnowmeltDialog.MACHINE_LEARNS;
 
+/*
+ 方法构建
+ */
 public class PanelMethodConstruct extends JPanel {
     private final ArrayList<MachineLearn> machineLearns;
     //第一步
@@ -20,13 +23,14 @@ public class PanelMethodConstruct extends JPanel {
         this.machineLearns = machineLearns;
         initComponent();
         initLayout();
+        this.setBorder(BorderFactory.createTitledBorder("方法构建"));
     }
 
     private void initComponent() {
 //        initData();
         this.table = new JTable();
         this.jScrollPane = new JScrollPane();
-        this.jScrollPane.setPreferredSize(new Dimension(300, 300));
+//        this.jScrollPane.setPreferredSize(new Dimension(300, 300));
         FirstTableModel firstTableModel = new FirstTableModel(this.machineLearns);
         this.table.setModel(firstTableModel);
         this.jScrollPane.setViewportView(table);
@@ -101,7 +105,7 @@ public class PanelMethodConstruct extends JPanel {
     }
     private void initLayout() {
         this.setLayout(new GridBagLayout());
-        this.add(jScrollPane , new myGridBagConstraints(0,0,0,0,1,1)
-                .setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.WEST));
+        this.add(jScrollPane , new myGridBagConstraints(0,0,1,1,1,1)
+                .setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER));
     }
 }

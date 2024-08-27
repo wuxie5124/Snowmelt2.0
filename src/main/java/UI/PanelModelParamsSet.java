@@ -40,6 +40,7 @@ public class PanelModelParamsSet extends JPanel {
         initComponent();
         initActionListener();
 //        initData();
+        this.setBorder(BorderFactory.createTitledBorder("模型参数设置"));
     }
 
 
@@ -67,14 +68,13 @@ public class PanelModelParamsSet extends JPanel {
     public void initComponent() {
         this.jPanel1 = new JPanel();
         this.jPanel2 = new JPanel();
-        GridBagLayout gridBagLayout = new GridBagLayout();
-
         this.jButtonOK = new JButton("确定");
+        this.setLayout(new GridBagLayout());
         this.add(jPanel1, new myGridBagConstraints(0, 0, 1, 3, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.NORTHWEST));
         this.add(jPanel2, new myGridBagConstraints(1, 0, 1, 3, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.NORTHWEST));
-        this.add(jButtonOK, new myGridBagConstraints(0, 3, 2, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
-        this.jPanel1.setLayout(gridBagLayout);
-        this.jPanel2.setLayout(gridBagLayout);
+//        this.add(jButtonOK, new myGridBagConstraints(0, 3, 2, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+        this.jPanel1.setLayout(new GridBagLayout());
+        this.jPanel2.setLayout(new GridBagLayout());
         this.jPanel1.setPreferredSize(new Dimension(200, 350));
         this.jPanel2.setPreferredSize(new Dimension(320, 350));
         this.jPanel1.setBorder(BorderFactory.createTitledBorder("方法"));

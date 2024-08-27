@@ -4,6 +4,8 @@ import Tool.PythonUtilities;
 import Tool.StringUtilities;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.io.File;
@@ -21,6 +23,7 @@ public class PanelPreProcess extends JPanel {
         initComponent();
         initLayout();
         initListener();
+        this.setBorder(BorderFactory.createTitledBorder("预处理"));
     }
 
     private void initComponent() {
@@ -49,16 +52,19 @@ public class PanelPreProcess extends JPanel {
 
     private void initLayout() {
         this.setLayout(new GridBagLayout());
-        this.add(inputTifFileChoosePanel,new myGridBagConstraints(0,0,2,1,1,1).setFill(GridBagConstraints.BOTH).setInset(5,5,0,5));
-        this.add(outputTifFileChoosePanel,new myGridBagConstraints(0,1,2,1,1,1).setFill(GridBagConstraints.BOTH).setInset(5,5,0,5));
-        this.add(xyFileChoosePanel,new myGridBagConstraints(0,2,2,1,1,1).setFill(GridBagConstraints.BOTH).setInset(5,5,0,5));
-        this.add(extractPanel,new myGridBagConstraints(0,3,2,1,1,1).setFill(GridBagConstraints.BOTH).setInset(5,5,0,5));
+        this.add(inputTifFileChoosePanel,new myGridBagConstraints(0,0,2,1,1,1).setFill(GridBagConstraints.HORIZONTAL).setInset(0,5,0,15));
+        this.add(outputTifFileChoosePanel,new myGridBagConstraints(0,1,2,1,1,1).setFill(GridBagConstraints.HORIZONTAL).setInset(0,5,0,15));
+        this.add(xyFileChoosePanel,new myGridBagConstraints(0,2,2,1,1,1).setFill(GridBagConstraints.HORIZONTAL).setInset(0,5,0,15));
+        this.add(extractPanel,new myGridBagConstraints(0,3,2,1,1,1).setFill(GridBagConstraints.HORIZONTAL).setInset(0,5,0,15));
+        JPanel tempPanel = new JPanel();
+        tempPanel.setLayout(new GridBagLayout());
         JPanel namePanel = new JPanel();
         namePanel.setLayout(new GridBagLayout());
         namePanel.add(nameLabel,new myGridBagConstraints(0,0,1,1,0,1).setFill(GridBagConstraints.NONE).setInset(0,0,0,0));
         namePanel.add(textField,new myGridBagConstraints(1,0,1,1,1,1).setFill(GridBagConstraints.HORIZONTAL).setInset(0,5,0,0));
-        this.add(namePanel,new myGridBagConstraints(0,4,1,1,1,1).setFill(GridBagConstraints.BOTH).setInset(5,5,0,0));
-        this.add(button,new myGridBagConstraints(1,4,1,0,1,1).setFill(GridBagConstraints.NONE).setInset(5,5,0,5));
+        tempPanel.add(namePanel,new myGridBagConstraints(0,0,1,1,1,1).setFill(GridBagConstraints.HORIZONTAL).setInset(0,0,0,0).setAnchor(GridBagConstraints.WEST));
+        tempPanel.add(button,new myGridBagConstraints(1,0,1,1,1,1).setFill(GridBagConstraints.NONE).setInset(0,5,0,0).setAnchor(GridBagConstraints.EAST));
+        this.add(tempPanel,new myGridBagConstraints(0,4,2,1,1,1).setFill(GridBagConstraints.HORIZONTAL).setInset(0,5,0,15));
     }
 
     private void initListener() {

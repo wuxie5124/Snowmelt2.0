@@ -3,6 +3,7 @@ package UI;
 import ML.MachineLearn;
 import Model.ParamAndTiff;
 import Tool.PythonUtilities;
+import Tool.StringUtilities;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,13 +18,16 @@ public class PanelCalculate extends JPanel {
     private ArrayList<ParamAndTiff> paramAndTiffs;
     private String excelFilePath;
     private ArrayList<String> resultStr;
+    SnowmeltDialog dialog;
+
     /*
        方法执行
      */
-     public PanelCalculate(ArrayList<MachineLearn> machineLearns, ArrayList<ParamAndTiff> paramAndTiffs, String excelFilePath) {
-        this.machineLearns = machineLearns;
-        this.paramAndTiffs = paramAndTiffs;
-        this.excelFilePath = excelFilePath;
+    public PanelCalculate(SnowmeltDialog dialog) {
+        this.dialog = dialog;
+        this.machineLearns = dialog.machineLearns;
+        this.paramAndTiffs = dialog.paramAndTiffs;
+        this.excelFilePath = dialog.excelFilePath;
         initComponent();
         initLayout();
         initListener();
@@ -56,12 +60,30 @@ public class PanelCalculate extends JPanel {
 
     ActionListener actionListener = e -> {
         if (e.getSource() == jButton1) {
-            resultStr = PythonUtilities.runMachineLearn(this.machineLearns, this.paramAndTiffs, this.excelFilePath);
-            if (resultStr.size() >0){
-                jTextArea.setText("模型训练结果，可以输出结果");
+            this.setCursor(new Cursor(Cursor.WAIT_CURSOR));
+            if (this.machineLearns.size() > 0
+                    && this.paramAndTiffs.size() > 0 && !StringUtilities.isEmptyOrNull(this.excelFilePath)) {
+                dialog.panelConsole.addText("开始计算结果!");
+                resultStr = PythonUtilities.runMachineLearn(this.machineLearns, this.paramAndTiffs, this.excelFilePath);
+                if (resultStr.size() > 0) {
+                    jTextArea.setText("模型训练结果，可以输出结果");
+                } else {
+                    jTextArea.setText("模型训练未完成，请检查");
+                }
+                dialog.panelConsole.addText("计算完成！");
             }else{
-                jTextArea.setText("模型训练未完成，请检查");
+                if (this.machineLearns.size() == 0) {
+                    dialog.panelConsole.addText("未选择机器学习方法！");
+                }
+                if(this.paramAndTiffs.size() == 0){
+                    dialog.panelConsole.addText("未选择影像文件！");
+                }
+                if(StringUtilities.isEmptyOrNull(this.excelFilePath)){
+                    dialog.panelConsole.addText("未选择特征文件！");
+                }
+
             }
+            this.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         } else if (e.getSource() == jButton2) {
             String all = "";
             for (String s : resultStr) {

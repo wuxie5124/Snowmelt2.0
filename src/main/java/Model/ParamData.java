@@ -20,6 +20,16 @@ public class ParamData {
     Boolean isCheck;
     String paramName;
 
+    Double corr;
+
+    public Double getCorr() {
+        return corr;
+    }
+
+    public void setCorr(Double corr) {
+        this.corr = corr;
+    }
+
     public ParamData(Boolean isCheck, String paramName) {
         this.isCheck = isCheck;
         this.paramName = paramName;

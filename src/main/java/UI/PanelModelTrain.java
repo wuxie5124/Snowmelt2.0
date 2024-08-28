@@ -3,7 +3,6 @@ package UI;
 import ML.*;
 import ML.Params.MLParam;
 import Model.ChooseState;
-import Model.FeatureTableModel;
 import Model.FileChoose;
 import Model.ParamData;
 import Tool.JsonUtilities;
@@ -19,15 +18,18 @@ import java.math.BigDecimal;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 
-import static Tool.ExcelUtilities.getExcelHeader;
-
+/***
+ * 模型参数选择
+ *
+ */
 public class PanelModelTrain extends JPanel {
+    private SnowmeltDialog dialog;
     private ArrayList<MachineLearn> machineLearns;
     private JButton buttonCustom;
     private JButton buttonGridSearch;
     private JButton buttonChooseBest;
     private JButton buttonReadFile;
-//    private JButton buttonSaveFile;
+    //    private JButton buttonSaveFile;
     private JTextArea jTextField;
     private String excelFilePath;
 
@@ -36,13 +38,14 @@ public class PanelModelTrain extends JPanel {
     private ArrayList<MachineLearn> bestMachineLearn;
     private ArrayList<MachineLearn> defaultMachineLearn;
 
-    public PanelModelTrain(ArrayList<MachineLearn> machineLearns, String excelFilePath,ArrayList<ParamData> paramData) {
-        this.machineLearns = machineLearns;
-        this.excelFilePath = excelFilePath;
+    public PanelModelTrain(SnowmeltDialog dialog) {
+        this.dialog = dialog;
+        this.machineLearns = dialog.machineLearns;
+        this.excelFilePath = dialog.excelFilePath;
+        this.paramData = dialog.paramData;
         this.bestMachineLearn = new ArrayList<>();
         this.defaultMachineLearn = new ArrayList<>();
         this.defaultMachineLearn.addAll(machineLearns);
-        this.paramData = paramData;
         initComponent();
         initLayout();
         initListener();
@@ -55,16 +58,17 @@ public class PanelModelTrain extends JPanel {
         buttonChooseBest.addActionListener(actionListener);
         buttonReadFile.addActionListener(actionListener);
     }
+
     private void initLayout() {
         this.setLayout(new GridBagLayout());
-        this.add(jTextField, new myGridBagConstraints(0, 0, 1, 2, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(2,2,2,2));
+        this.add(jTextField, new myGridBagConstraints(0, 0, 1, 2, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(2, 2, 2, 2));
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridBagLayout()) ;
-        buttonPanel.add(buttonGridSearch, new myGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER).setInset(2,2,2,2));
-        buttonPanel.add(buttonCustom, new myGridBagConstraints(1, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER).setInset(2,2,2,2));
-        buttonPanel.add(buttonChooseBest, new myGridBagConstraints(2, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER).setInset(2,2,2,2));
+        buttonPanel.setLayout(new GridBagLayout());
+        buttonPanel.add(buttonGridSearch, new myGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER).setInset(2, 2, 2, 2));
+        buttonPanel.add(buttonCustom, new myGridBagConstraints(1, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER).setInset(2, 2, 2, 2));
+        buttonPanel.add(buttonChooseBest, new myGridBagConstraints(2, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER).setInset(2, 2, 2, 2));
 //        buttonPanel.add(buttonReadFile, new myGridBagConstraints(3, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.WEST).setInset(2,2,2,2));
-        this.add(buttonPanel,new myGridBagConstraints(0, 2, 1, 1, 1, 0).setFill(GridBagConstraints.HORIZONTAL).setAnchor(GridBagConstraints.CENTER).setInset(2,2,2,2));
+        this.add(buttonPanel, new myGridBagConstraints(0, 2, 1, 1, 1, 0).setFill(GridBagConstraints.HORIZONTAL).setAnchor(GridBagConstraints.CENTER).setInset(2, 2, 2, 2));
     }
 
     private void initComponent() {
@@ -78,6 +82,7 @@ public class PanelModelTrain extends JPanel {
     }
 
     private static String FORMATSTR = "第{0}个方法为{1},用户选取参数为,{2}，评分为{3};网格搜寻参数为,{4}，评分为{5} \n";
+
     private void outputFile(String filepath) {
         JSONObject jsonObject = JsonUtilities.readJsonFile(filepath);
         String exportStr = "";
@@ -135,20 +140,31 @@ public class PanelModelTrain extends JPanel {
             }
         }
     }
+
     ActionListener actionListener = e -> {
-        if (e.getSource() == buttonGridSearch){
+        if (e.getSource() == buttonGridSearch) {
+            this.dialog.panelConsole.addText("开始搜寻格网搜寻");
+            this.setCursor(new Cursor(Cursor.WAIT_CURSOR));
             String jsonFilePath = PythonUtilities.runGridSearch(this.machineLearns, this.paramData, this.excelFilePath);
 //            String filepath = "C:\\Users\\zhangjunmin\\Desktop\\11\\gridSearchParam.json";
-            outputFile(jsonFilePath);
-        }else if (e.getSource() == buttonCustom){
+            if (!jsonFilePath.isEmpty()) {
+                outputFile(jsonFilePath);
+                this.dialog.panelConsole.addText("网格搜寻成功!");
+            } else {
+                this.dialog.panelConsole.addText("网格搜寻失败!");
+            }
+            this.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else if (e.getSource() == buttonCustom) {
             this.machineLearns.clear();
             this.machineLearns.addAll(defaultMachineLearn);
-        }else if (e.getSource() == buttonChooseBest){
+            this.dialog.panelConsole.addText("采用用户自选参数！");
+        } else if (e.getSource() == buttonChooseBest) {
             this.machineLearns.clear();
             this.machineLearns.addAll(bestMachineLearn);
-        }else if (e.getSource() == buttonReadFile) {
+            this.dialog.panelConsole.addText("采用格网搜寻参数！");
+        } else if (e.getSource() == buttonReadFile) {
             FileChoose fileChoose = new FileChoose();
-            fileChoose.setFileFilter(new FileNameExtensionFilter("*.json","json"));
+            fileChoose.setFileFilter(new FileNameExtensionFilter("*.json", "json"));
             if (fileChoose.getSTATE() == ChooseState.OK) {
                 File selectedFile = fileChoose.getSelectedFile();
                 outputFile(selectedFile.getPath());

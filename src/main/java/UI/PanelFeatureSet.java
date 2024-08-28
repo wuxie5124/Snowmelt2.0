@@ -1,9 +1,10 @@
 package UI;
 
-import Model.ChooseState;
 import Model.FeatureTableModel;
 import Model.FileChoose;
 import Model.ParamData;
+import Tool.PythonUtilities;
+import Tool.StringUtilities;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -13,22 +14,30 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.EventObject;
+import java.util.Map;
 
 import static Tool.ExcelUtilities.getExcelHeader;
 
+/**
+ *
+ * 特征设置
+ */
+
+
 public class PanelFeatureSet extends JPanel {
-    private SnowmeltDialog snowmeltDialog;
+    SnowmeltDialog dialog;
     FeatureTableModel paramTableModel;
     JPanel jPanelSub;
     JButton jButtonRead;
     JButton jButtonOK;
+    JButton jButtonCorr;
     JButton jButtonClear;
     JScrollPane jScrollPane;
     private JTable paramTable;
     ArrayList<ParamData> paramData;
-    public PanelFeatureSet(SnowmeltDialog snowmeltDialog, ArrayList<ParamData> paramData) {
-        this.paramData = paramData;
-        this.snowmeltDialog = snowmeltDialog;
+    public PanelFeatureSet(SnowmeltDialog dialog) {
+        this.paramData = dialog.paramData;
+        this.dialog = dialog;
         this.paramTableModel = new FeatureTableModel();
         initComponent();
         initRenderAndEditor();
@@ -71,7 +80,7 @@ public class PanelFeatureSet extends JPanel {
             }
         };
 
-        paramTable.getColumnModel().getColumn(2).setCellRenderer(defaultTableCellRenderer);
+        paramTable.getColumnModel().getColumn(3).setCellRenderer(defaultTableCellRenderer);
         DefaultTableCellRenderer defaultTableCellRenderer1 = new DefaultTableCellRenderer();
         defaultTableCellRenderer1.setHorizontalAlignment(0);
         paramTable.getColumnModel().getColumn(1).setCellRenderer(defaultTableCellRenderer1);
@@ -85,13 +94,15 @@ public class PanelFeatureSet extends JPanel {
         this.add(jScrollPane, new myGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(10, 20, 0, 20));
         this.add(jPanelSub, new myGridBagConstraints(0, 4, 1, 1, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(10, 20, 0, 20));
         jPanelSub.add(jButtonRead, new myGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+        jPanelSub.add(jButtonCorr, new myGridBagConstraints(1, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
 //        jPanelSub.add(jButtonOK, new myGridBagConstraints(1, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
-        jPanelSub.add(jButtonClear, new myGridBagConstraints(1, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+        jPanelSub.add(jButtonClear, new myGridBagConstraints(2, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
 
     }
 
     private void initActionListener() {
         jButtonRead.addActionListener(actionListenerPage3);
+        jButtonCorr.addActionListener(actionListenerPage3);
         jButtonOK.addActionListener(actionListenerPage3);
         jButtonClear.addActionListener(actionListenerPage3);
     }
@@ -100,6 +111,9 @@ public class PanelFeatureSet extends JPanel {
         jButtonRead = new JButton("读取特征数据");
         jButtonRead.setPreferredSize(new Dimension(120,25));
         jButtonOK = new JButton("确定");
+        jButtonOK.setPreferredSize(new Dimension(120,25));
+        jButtonCorr = new JButton("计算相关性");
+        jButtonCorr.setPreferredSize(new Dimension(120,25));
         jButtonClear = new JButton("清除数据");
         jButtonClear.setPreferredSize(new Dimension(120,25));
         jPanelSub = new JPanel();
@@ -129,7 +143,7 @@ public class PanelFeatureSet extends JPanel {
             if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = fileChooser.getSelectedFile();
                 String[] excelHeader = getExcelHeader(selectedFile.getPath());
-                this.snowmeltDialog.excelFilePath = selectedFile.getPath();
+                this.dialog.excelFilePath = selectedFile.getPath();
                 this.paramData.clear();
                 for (int i = 0; i < excelHeader.length; i++) {
                    if(i == excelHeader.length-1 && excelHeader[i].equals("Level")){
@@ -138,6 +152,7 @@ public class PanelFeatureSet extends JPanel {
                    this.paramData.add(new ParamData(FeatureTableModel.CHOOSE, excelHeader[i]));
                 }
                 this.paramTableModel.fireTableDataChanged();
+                this.dialog.panelConsole.addText("已读取特征数据!");
             }
         } else if (e.getSource() == jButtonOK) {
 //            this.checkedParams = this.paramTableModel.getCheckedParams();
@@ -145,6 +160,16 @@ public class PanelFeatureSet extends JPanel {
         }else if (e.getSource() == jButtonClear){
             this.paramData.clear();
             this.paramTableModel.fireTableDataChanged();
+            this.dialog.panelConsole.addText("已清除特征数据!");
+        }else if (e.getSource() == jButtonCorr){
+            if (!StringUtilities.isEmptyOrNull(this.dialog.excelFilePath)){
+                Map map = PythonUtilities.runCorr(this.dialog.excelFilePath);
+                for (ParamData paramDatum : this.paramData) {
+                    String paramName = paramDatum.getParamName();
+                    paramDatum.setCorr((Double) map.get(paramName));
+                }
+                this.paramTableModel.fireTableDataChanged();
+            }
         }
     };
 }

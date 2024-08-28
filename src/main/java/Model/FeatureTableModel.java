@@ -4,7 +4,7 @@ import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
 public class FeatureTableModel extends DefaultTableModel {
-    private String[] colunmHeaders = new String[]{"序号", "特征名", "选择"};
+    private String[] colunmHeaders = new String[]{"序号", "特征名", "相关性", "选择"};
 
     public static final boolean CHOOSE = true;
 
@@ -20,13 +20,13 @@ public class FeatureTableModel extends DefaultTableModel {
 
     }
 
-    public void setModelData(ArrayList<ParamData> paramDatas){
+    public void setModelData(ArrayList<ParamData> paramDatas) {
         this.paramDatas = paramDatas;
     }
 
     @Override
     public boolean isCellEditable(int row, int column) {
-        return column == 2;
+        return column == 3;
     }
 
     @Override
@@ -67,15 +67,37 @@ public class FeatureTableModel extends DefaultTableModel {
             case 1:
                 return paramDatas.get(rowIndex).getParamName();
             case 2:
+                if(paramDatas.get(rowIndex).getCorr() == null){
+                    return "";
+                }else{
+                    return String.valueOf(paramDatas.get(rowIndex).getCorr());
+                }
+            case 3:
                 return paramDatas.get(rowIndex).getCheck();
             default:
                 return super.getValueAt(rowIndex, columnIndex);
         }
     }
-    public ArrayList<String> getCheckedParams(){
+
+    @Override
+    public Class<?> getColumnClass(int columnIndex) {
+        switch (columnIndex){
+            case 0:
+                return Integer.class;
+            case 1:
+            case 2:
+                return String.class;
+            case 3:
+                return Boolean.class;
+            default:
+                return super.getColumnClass(columnIndex);
+        }
+    }
+
+    public ArrayList<String> getCheckedParams() {
         ArrayList<String> Params = new ArrayList<>();
         for (int i = 0; i < paramDatas.size(); i++) {
-            if(paramDatas.get(i).getCheck()) Params.add(paramDatas.get(i).getParamName());
+            if (paramDatas.get(i).getCheck()) Params.add(paramDatas.get(i).getParamName());
         }
         return Params;
     }

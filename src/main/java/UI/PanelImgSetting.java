@@ -1,8 +1,6 @@
 package UI;
 
 import Model.*;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.Stage;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -13,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PanelImgSetting extends JPanel {
-    private SnowmeltDialog snowmeltDialog;
+    private SnowmeltDialog dialog;
     ArrayList<ParamAndTiff> paramAndTiffs;
     ArrayList<ParamData> paramDatas;
     JTable tifTable;
@@ -26,10 +24,10 @@ public class PanelImgSetting extends JPanel {
 
     HashMap<String, String> paramMap;
 
-    public PanelImgSetting(SnowmeltDialog snowmeltDialog, ArrayList<ParamAndTiff> paramTif, ArrayList<ParamData> paramDatas) {
-        this.snowmeltDialog = snowmeltDialog;
-        this.paramAndTiffs = paramTif;
-        this.paramDatas = paramDatas;
+    public PanelImgSetting(SnowmeltDialog dialog) {
+        this.dialog = dialog;
+        this.paramAndTiffs = dialog.paramAndTiffs;
+        this.paramDatas = dialog.paramData;
         this.paramMap = new HashMap<>();
         initHashMap();
         initComponent();
@@ -134,10 +132,13 @@ public class PanelImgSetting extends JPanel {
                         }
                     }
                 }
-            this.dataChooseTableModel.fireTableDataChanged();}
-        }else if (e.getSource() == jButtonClear){
+                this.dataChooseTableModel.fireTableDataChanged();
+                this.dialog.panelConsole.addText("已读取影像数据!");
+            }
+        } else if (e.getSource() == jButtonClear) {
             paramAndTiffs.clear();
             this.dataChooseTableModel.fireTableDataChanged();
+            this.dialog.panelConsole.addText("已清除特征数据!");
         }
     };
 }

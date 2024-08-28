@@ -19,8 +19,8 @@ public class PanelMethodConstruct extends JPanel {
     //第一步
     JTable table;
     JScrollPane jScrollPane;
-    public PanelMethodConstruct(ArrayList<MachineLearn> machineLearns) {
-        this.machineLearns = machineLearns;
+    public PanelMethodConstruct(SnowmeltDialog dialog) {
+        this.machineLearns = dialog.machineLearns;
         initComponent();
         initLayout();
         this.setBorder(BorderFactory.createTitledBorder("方法构建"));

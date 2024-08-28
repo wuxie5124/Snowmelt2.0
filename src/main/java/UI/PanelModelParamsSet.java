@@ -35,8 +35,8 @@ public class PanelModelParamsSet extends JPanel {
 
     ArrayList<MachineLearn> tableData;
 
-    public PanelModelParamsSet(ArrayList<MachineLearn> machineLearns) {
-        this.machineLearns = machineLearns;
+    public PanelModelParamsSet(SnowmeltDialog dialog) {
+        this.machineLearns = dialog.machineLearns;
         initComponent();
         initActionListener();
 //        initData();

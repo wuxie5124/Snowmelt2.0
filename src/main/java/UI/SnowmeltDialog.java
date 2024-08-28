@@ -128,8 +128,8 @@ public class SnowmeltDialog extends JFrame {
         this.panelContent.add(this.labelRemind,
                 new myGridBagConstraints(0, 0, 1, 1, 0, 0)
                         .setAnchor(GridBagConstraints.EAST));
-        this.panelContent.setPreferredSize(new Dimension(600,400));
-        this.panelContent.setPreferredSize(new Dimension(600,200));
+        this.panelContent.setPreferredSize(new Dimension(600,350));
+        this.panelConsole.setPreferredSize(new Dimension(600,100));
     }
 
     private void removeEvent() {
@@ -154,25 +154,25 @@ public class SnowmeltDialog extends JFrame {
         if (e.getSource() == itemClassAndRegressor) {
 
         }else if(e.getSource() == itemPreprocess){
-            this.panelPreprocess = new PanelPreProcess();
+            this.panelPreprocess = new PanelPreProcess(this);
             replace(this.panelContent,this.panelPreprocess);
         } else if (e.getSource() == itemMethodConstruct) {
-            this.panelMethodConstruct = new PanelMethodConstruct(machineLearns);
+            this.panelMethodConstruct = new PanelMethodConstruct(this);
             replace(this.panelContent, this.panelMethodConstruct);
         } else if (e.getSource() == itemModelParamsSe) {
-            this.panelModelParamsSet = new PanelModelParamsSet(machineLearns);
+            this.panelModelParamsSet = new PanelModelParamsSet(this);
             replace(this.panelContent, this.panelModelParamsSet);
         } else if (e.getSource() == itemFeatureSet) {
-            this.panelFeatureSet = new PanelFeatureSet(this, this.paramData);
+            this.panelFeatureSet = new PanelFeatureSet(this);
             replace(this.panelContent, this.panelFeatureSet);
         } else if(e.getSource() == itemModelTrain){
-            this.panelModelTrain = new PanelModelTrain(machineLearns,this.excelFilePath,this.paramData);
+            this.panelModelTrain = new PanelModelTrain(this);
             replace(this.panelContent,this.panelModelTrain);
         } else if (e.getSource() == itemImgSetting) {
-            this.panelImgSetting = new PanelImgSetting(this, this.paramAndTiffs ,this.paramData);
+            this.panelImgSetting = new PanelImgSetting(this);
             replace(this.panelContent, this.panelImgSetting);
         }  else if (e.getSource() == itemCalculate) {
-            this.panelCalculate = new PanelCalculate(this.machineLearns,this.paramAndTiffs,this.excelFilePath);
+            this.panelCalculate = new PanelCalculate(this);
             replace(this.panelContent, this.panelCalculate);
         }
         this.revalidate();

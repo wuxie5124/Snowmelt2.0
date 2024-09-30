@@ -113,12 +113,12 @@ public class SnowmeltDialog extends JFrame {
     private void initLayout() {
         this.setLayout(new GridBagLayout());
         this.add(this.panelContent,
-                new myGridBagConstraints(0, 0, 1, 1, 1, 3)
+                new MyGridBagConstraints(0, 0, 1, 1, 1, 3)
                         .setInset(5, 5, 5, 5)
                         .setAnchor(GridBagConstraints.CENTER)
                         .setFill(GridBagConstraints.BOTH));
         this.add(this.panelConsole,
-                new myGridBagConstraints(0, 1, 1, 1, 1, 1)
+                new MyGridBagConstraints(0, 1, 1, 1, 1, 1)
                         .setInset(5, 5, 5, 5)
                         .setAnchor(GridBagConstraints.SOUTH)
                         .setFill(GridBagConstraints.BOTH)
@@ -126,7 +126,7 @@ public class SnowmeltDialog extends JFrame {
 
         this.panelContent.setLayout(new GridBagLayout());
         this.panelContent.add(this.labelRemind,
-                new myGridBagConstraints(0, 0, 1, 1, 0, 0)
+                new MyGridBagConstraints(0, 0, 1, 1, 0, 0)
                         .setAnchor(GridBagConstraints.EAST));
         this.panelContent.setPreferredSize(new Dimension(600,350));
         this.panelConsole.setPreferredSize(new Dimension(600,100));
@@ -183,7 +183,7 @@ public class SnowmeltDialog extends JFrame {
         parentPanel.removeAll();
         parentPanel.setLayout(new GridBagLayout());
         parentPanel.add(jComponent,
-                new myGridBagConstraints(0, 0, 1, 1, 1, 1)
+                new MyGridBagConstraints(0, 0, 1, 1, 1, 1)
                         .setAnchor(GridBagConstraints.CENTER));
     }
 

@@ -105,7 +105,7 @@ public class PanelMethodConstruct extends JPanel {
     }
     private void initLayout() {
         this.setLayout(new GridBagLayout());
-        this.add(jScrollPane , new myGridBagConstraints(0,0,1,1,1,1)
+        this.add(jScrollPane , new MyGridBagConstraints(0,0,1,1,1,1)
                 .setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER));
     }
 }

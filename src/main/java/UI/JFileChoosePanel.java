@@ -26,8 +26,8 @@ public class JFileChoosePanel extends JPanel {
 
     private void initLayout() {
         this.setLayout(new GridBagLayout());
-        this.add(textField,new myGridBagConstraints(0,0,1,1,1,0).setFill(GridBagConstraints.HORIZONTAL).setInset(0,0,0,0).setAnchor(GridBagConstraints.WEST));
-        this.add(button,new myGridBagConstraints(1,0,1,1,1,0).setFill(GridBagConstraints.NONE).setInset(0,5,0,0).setAnchor(GridBagConstraints.EAST));
+        this.add(textField,new MyGridBagConstraints(0,0,1,1,1,0).setFill(GridBagConstraints.HORIZONTAL).setInset(0,0,0,0).setAnchor(GridBagConstraints.WEST));
+        this.add(button,new MyGridBagConstraints(1,0,1,1,1,0).setFill(GridBagConstraints.NONE).setInset(0,5,0,0).setAnchor(GridBagConstraints.EAST));
     }
 
     public void setButtonName(String name){

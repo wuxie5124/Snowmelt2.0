@@ -13,10 +13,8 @@ public class PanelConsole extends JPanel {
         scrollPane.createHorizontalScrollBar();
         scrollPane.createVerticalScrollBar();
         this.setLayout(new GridBagLayout());
-//        JLabel nameLabel = new JLabel("输出：");
-//        this.add(nameLabel,new myGridBagConstraints(0,0,1,1,0,0).setFill(GridBagConstraints.NONE).setInset(5,0,0,0).setAnchor(GridBagConstraints.WEST));
-        this.add(scrollPane,new myGridBagConstraints(0,0,1,1,1,1).setFill(GridBagConstraints.BOTH).setInset(0,0,0,0).setAnchor(GridBagConstraints.CENTER));
-        this.setBorder(BorderFactory.createTitledBorder("输出"));
+        this.add(scrollPane,new MyGridBagConstraints(0,0,1,1,1,1).setFill(GridBagConstraints.BOTH).setInset(0,0,0,0).setAnchor(GridBagConstraints.CENTER));
+        this.setBorder(BorderFactory.createTitledBorder("运行记录"));
     }
     public void addText(String text){
         this.textArea.append("\n" + text);

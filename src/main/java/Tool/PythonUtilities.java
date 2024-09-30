@@ -4,6 +4,8 @@ import ML.MachineLearn;
 import ML.Params.MLParam;
 import Model.ParamAndTiff;
 import Model.ParamData;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 import javax.swing.*;
 import java.io.BufferedReader;
@@ -11,10 +13,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PythonUtilities {
-    private  static  boolean isAbsolutePath = false;
+    private static boolean isAbsolutePath = true;
+
     @Deprecated
     public static ArrayList<String> runMachineLearn1(ArrayList<MachineLearn> mLearns, ArrayList<ParamData> paramDatas, String excelFilePath) {
         String strMachineLearns = "";
@@ -141,13 +145,13 @@ public class PythonUtilities {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        if (resultStr.size() == 0){
+        if (resultStr.size() == 0) {
             jsonFilePath = "";
         }
         return jsonFilePath;
     }
 
-    public static void runPreprocess(String inputTifPath,String outTifPath,String xyPath,String extractPath) {
+    public static void runPreprocess(String inputTifPath, String outTifPath, String xyPath, String extractPath) {
         ArrayList<String> resultStr = new ArrayList<>();
         String pythonPath = System.getProperty("user.dir");
         if (isAbsolutePath) {
@@ -171,14 +175,15 @@ public class PythonUtilities {
         }
     }
 
+    @Deprecated
     public static Map runCorr(String extractPath) {
         String pythonPath = System.getProperty("user.dir");
         if (isAbsolutePath) {
             pythonPath = "E:\\TeacherLiu\\snow";
         }
-        Map<String ,Double> corrMap = new HashMap<>();
+        Map<String, Double> corrMap = new HashMap<>();
         String[] args1 = new String[]
-                {pythonPath + "\\python\\Miniconda3\\python.exe", pythonPath + "\\python\\corr.py",extractPath};
+                {pythonPath + "\\python\\Miniconda3\\python.exe", pythonPath + "\\python\\corr.py", extractPath};
         try {
             Process proc = Runtime.getRuntime().exec(args1);
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream(), "GBK"));
@@ -187,10 +192,10 @@ public class PythonUtilities {
                 String[] split = line.split("#");
                 for (int i = 1; i < split.length; i++) {
                     String[] featureAndCorr = split[i].split("&");
-                    if (featureAndCorr[1].equals("nan")){
+                    if (featureAndCorr[1].equals("nan")) {
                         continue;
                     }
-                    corrMap.put(featureAndCorr[0],Double.valueOf(featureAndCorr[1]));
+                    corrMap.put(featureAndCorr[0], Double.valueOf(featureAndCorr[1]));
                 }
             }
             in.close();
@@ -201,5 +206,34 @@ public class PythonUtilities {
             throw new RuntimeException(e);
         }
         return corrMap;
+    }
+
+    public static Map runCoefficient(String extractPath) {
+        String pythonPath = System.getProperty("user.dir");
+        if (isAbsolutePath) {
+            pythonPath = "E:\\TeacherLiu\\snow";
+        }
+//        Map<String, List<Double>> corrMap = new HashMap<>();
+        String[] args1 = new String[]
+                {pythonPath + "\\python\\Miniconda3\\python.exe", pythonPath + "\\python\\corr.py", extractPath};
+        try {
+            Process proc = Runtime.getRuntime().exec(args1);
+            BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream(), "GBK"));
+            String line;
+            JSONObject jsonObject = null;
+            while ((line = in.readLine()) != null) {
+                jsonObject = JSON.parseObject(line);
+            }
+            if (jsonObject != null){
+                return jsonObject.getInnerMap();
+            }
+            in.close();
+            proc.waitFor();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 }

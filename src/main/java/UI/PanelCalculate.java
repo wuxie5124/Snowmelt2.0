@@ -44,12 +44,12 @@ public class PanelCalculate extends JPanel {
 
     private void initLayout() {
         this.setLayout(new GridBagLayout());
-        this.add(jTextArea, new myGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(10, 10, 0, 10));
+        this.add(jTextArea, new MyGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(10, 10, 0, 10));
         JPanel jPanelSub = new JPanel();
         jPanelSub.setLayout(new GridBagLayout());
-        this.add(jPanelSub, new myGridBagConstraints(0, 1, 1, 1, 1, 0).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(10, 10, 0, 10));
-        jPanelSub.add(jButton1, new myGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
-        jPanelSub.add(jButton2, new myGridBagConstraints(1, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+        this.add(jPanelSub, new MyGridBagConstraints(0, 1, 1, 1, 1, 0).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER).setInset(10, 10, 0, 10));
+        jPanelSub.add(jButton1, new MyGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+        jPanelSub.add(jButton2, new MyGridBagConstraints(1, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
 //        jTextField.setPreferredSize(new Dimension(300, 300));
     }
 

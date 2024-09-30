@@ -1,5 +1,6 @@
 package Model;
 
+import javax.print.DocFlavor;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
@@ -12,12 +13,25 @@ public class FeatureTableModel extends DefaultTableModel {
 
     private ArrayList<ParamData> paramDatas = new ArrayList<>();
 
+    private Coefficient coe = Coefficient.PEARSON;
+
     public FeatureTableModel(ArrayList<ParamData> paramDatas) {
         this.paramDatas = paramDatas;
     }
 
     public FeatureTableModel() {
 
+    }
+
+    public void setCoe(Coefficient coe) {
+        if(coe != this.coe){
+            this.coe = coe;
+            fireTableDataChanged();
+        }
+    }
+
+    public Coefficient getCoe() {
+        return coe;
     }
 
     public void setModelData(ArrayList<ParamData> paramDatas) {
@@ -50,7 +64,7 @@ public class FeatureTableModel extends DefaultTableModel {
             case 1:
                 paramDatas.get(row).setParamName((String) aValue);
                 break;
-            case 2:
+            case 3:
                 paramDatas.get(row).setCheck((Boolean) aValue);
                 break;
             default:
@@ -67,11 +81,7 @@ public class FeatureTableModel extends DefaultTableModel {
             case 1:
                 return paramDatas.get(rowIndex).getParamName();
             case 2:
-                if(paramDatas.get(rowIndex).getCorr() == null){
-                    return "";
-                }else{
-                    return String.valueOf(paramDatas.get(rowIndex).getCorr());
-                }
+                return paramDatas.get(rowIndex).getCorr(coe) ==null?"":String.valueOf(paramDatas.get(rowIndex).getCorr(coe));
             case 3:
                 return paramDatas.get(rowIndex).getCheck();
             default:

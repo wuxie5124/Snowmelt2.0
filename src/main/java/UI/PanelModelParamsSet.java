@@ -70,8 +70,8 @@ public class PanelModelParamsSet extends JPanel {
         this.jPanel2 = new JPanel();
         this.jButtonOK = new JButton("确定");
         this.setLayout(new GridBagLayout());
-        this.add(jPanel1, new myGridBagConstraints(0, 0, 1, 3, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.NORTHWEST));
-        this.add(jPanel2, new myGridBagConstraints(1, 0, 1, 3, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.NORTHWEST));
+        this.add(jPanel1, new MyGridBagConstraints(0, 0, 1, 3, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.NORTHWEST));
+        this.add(jPanel2, new MyGridBagConstraints(1, 0, 1, 3, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.NORTHWEST));
 //        this.add(jButtonOK, new myGridBagConstraints(0, 3, 2, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
         this.jPanel1.setLayout(new GridBagLayout());
         this.jPanel2.setLayout(new GridBagLayout());
@@ -93,14 +93,14 @@ public class PanelModelParamsSet extends JPanel {
         this.group.add(jRadioButton5);
         this.group.add(jRadioButton6);
 
-        this.jPanel1.add(jRadioButton1, new myGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
-        this.jPanel1.add(jRadioButton2, new myGridBagConstraints(0, 1, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
-        this.jPanel1.add(jRadioButton3, new myGridBagConstraints(0, 2, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
-        this.jPanel1.add(jRadioButton4, new myGridBagConstraints(0, 3, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
-        this.jPanel1.add(jRadioButton5, new myGridBagConstraints(0, 4, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
-        this.jPanel1.add(jRadioButton6, new myGridBagConstraints(0, 5, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+        this.jPanel1.add(jRadioButton1, new MyGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+        this.jPanel1.add(jRadioButton2, new MyGridBagConstraints(0, 1, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+        this.jPanel1.add(jRadioButton3, new MyGridBagConstraints(0, 2, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+        this.jPanel1.add(jRadioButton4, new MyGridBagConstraints(0, 3, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+        this.jPanel1.add(jRadioButton5, new MyGridBagConstraints(0, 4, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+        this.jPanel1.add(jRadioButton6, new MyGridBagConstraints(0, 5, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
         for (int i = 0; i < machineLearns.size(); i++) {
-            jPanel1.add(new JLabel(machineLearns.get(i).getMlName()), new myGridBagConstraints(1, i, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
+            jPanel1.add(new JLabel(machineLearns.get(i).getMlName()), new MyGridBagConstraints(1, i, 1, 1, 1, 1).setFill(GridBagConstraints.NONE).setAnchor(GridBagConstraints.CENTER));
         }
         this.activeMLWay = machineLearns.get(0);
         this.jTable = new JTable();
@@ -109,7 +109,7 @@ public class PanelModelParamsSet extends JPanel {
         this.paramTableModel = new ParamAndValueTableModel(this.activeMLWay);
         this.jTable.setModel(paramTableModel);
         setEditorAndRender();
-        this.jPanel2.add(jScrollPane, new myGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER));
+        this.jPanel2.add(jScrollPane, new MyGridBagConstraints(0, 0, 1, 1, 1, 1).setFill(GridBagConstraints.BOTH).setAnchor(GridBagConstraints.CENTER));
     }
     private void setEditorAndRender() {
         this.jTable.getColumnModel().getColumn(1).setCellRenderer(new DefaultTableCellRenderer() {

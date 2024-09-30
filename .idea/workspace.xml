@@ -9,12 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2865b625-5cb6-45dc-873f-d8051b74f9d3" name="变更" comment="python">
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/PanelConsole.java" afterDir="false" />
+    <list default="true" id="2865b625-5cb6-45dc-873f-d8051b74f9d3" name="变更" comment="1添加相关性分析&#10;2预处理功能问题解决">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Coefficient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/MTextField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_62.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/FeatureTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/FeatureTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/ParamData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/ParamData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tool/PythonUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tool/PythonUtilities.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/JFileChoosePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/JFileChoosePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelCalculate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelCalculate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelConsole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelFeatureSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelFeatureSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelImgSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelImgSetting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelMethodConstruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelMethodConstruct.java" afterDir="false" />
@@ -22,6 +27,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelModelTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelModelTrain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/PanelPreProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/PanelPreProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/SnowmeltDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SnowmeltDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/myGridBagConstraints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/MyGridBagConstraints.java" afterDir="false" />
     </list>
     <list id="d8318fab-727e-40db-a51a-e1b0f770af99" name="not" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +38,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -74,6 +82,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="UI" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="StartUp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="StartUp" />
@@ -129,7 +142,21 @@
       <option name="project" value="LOCAL" />
       <updated>1717225275485</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="对界面进行调整，添加console输出窗口">
+      <created>1724723850312</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724723850312</updated>
+    </task>
+    <task id="LOCAL-00006" summary="1添加相关性分析&#10;2预处理功能问题解决">
+      <created>1724863122203</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724863122203</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,51 +187,64 @@
     <MESSAGE value="229" />
     <MESSAGE value="320" />
     <MESSAGE value="6.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="6.1" />
+    <MESSAGE value="对界面进行调整，添加console输出窗口" />
+    <MESSAGE value="1添加相关性分析&#10;2预处理功能问题解决" />
+    <option name="LAST_COMMIT_MESSAGE" value="1添加相关性分析&#10;2预处理功能问题解决" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Tool/PythonUtilities.java</url>
-          <line>39</line>
+          <line>45</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Tool/PythonUtilities.java</url>
-          <line>83</line>
+          <line>89</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Tool/PythonUtilities.java</url>
-          <line>125</line>
+          <line>131</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/UI/JFileChoosePanel.java</url>
           <line>49</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/UI/PanelImgSetting.java</url>
-          <line>121</line>
+          <line>119</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/UI/PanelFeatureSet.java</url>
-          <line>126</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/UI/SnowmeltDialog.java</url>
           <line>128</line>
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Tool/PythonUtilities.java</url>
+          <line>155</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/UI/PanelFeatureSet.java</url>
+          <line>207</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/UI/PanelFeatureSet.java</url>
+          <line>237</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="excelHeader[0].split(&quot;TJN&quot;)" language="JAVA" />
+        <watch expression="((com.alibaba.fastjson.JSONArray)map.get(&quot;Relative_E&quot;)).get(0)" custom="com.alibaba.fastjson.JSONArray" />
+        <watch expression="map" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

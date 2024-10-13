@@ -35,7 +35,7 @@ public class DataChooseTableModel extends DefaultTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return rowIndex + 1;
+                return (Object) (rowIndex + 1);
             case 1:
                 return paramAndTiffs.get(rowIndex).getParamName();
             case 2:

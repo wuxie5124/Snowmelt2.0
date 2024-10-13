@@ -13,11 +13,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class PythonUtilities {
-    private static boolean isAbsolutePath = true;
+    private static final boolean isAbsolutePath = true;
+    private static final String absolutePythonPath = "D:\\myExe";
+    //    private static String absolutePath = "E:\\TeacherLiu\\snow";
+    private static final String absolutePyScriptPath = "D:\\PycharmProjects\\SnowmeltPy\\pythonProject";
 
     @Deprecated
     public static ArrayList<String> runMachineLearn1(ArrayList<MachineLearn> mLearns, ArrayList<ParamData> paramDatas, String excelFilePath) {
@@ -81,14 +83,19 @@ public class PythonUtilities {
             strParamData += "#" + paramAndTiff.getParamName();
             strTifPath += "#%" + paramAndTiff.getTiffPath();
         }
-        String pythonPath = System.getProperty("user.dir");
+        String dirPath = System.getProperty("user.dir");
+        String scriptPath = "";
+        String pythonPath = "";
         if (isAbsolutePath) {
-            pythonPath = "E:\\TeacherLiu\\snow";
+            scriptPath = absolutePyScriptPath + "\\calculateTifFromJavaR.py";
+            pythonPath = absolutePythonPath + "\\python\\Miniconda3\\python.exe";
+        } else {
+            scriptPath = dirPath + "\\python\\calculateTifFromJavaR.py";
+            pythonPath = dirPath + "\\python\\Miniconda3\\python.exe";
         }
-
 //        JOptionPane.showMessageDialog(null, pythonPath);
         String[] args1 = new String[]
-                {pythonPath + "\\python\\Miniconda3\\python.exe", pythonPath + "\\python\\calculateTifFromJavaR.py", strMachineLearns, strParamData, strTifPath, excelFilePath};
+                {pythonPath, scriptPath, strMachineLearns, strParamData, strTifPath, excelFilePath};
         try {
             Process proc = Runtime.getRuntime().exec(args1);
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream(), "GBK"));
@@ -123,14 +130,22 @@ public class PythonUtilities {
                 strParamData += "#" + paramData.getParamName();
             }
         }
-        String pythonPath = System.getProperty("user.dir");
+        String dirPath = System.getProperty("user.dir");
+        String scriptPath = "";
+        String pythonPath = "";
+        String jsonFilePath = "";
         if (isAbsolutePath) {
-            pythonPath = "E:\\TeacherLiu\\snow";
+            scriptPath = absolutePyScriptPath + "\\getGridSearchResultR.py";
+            pythonPath = absolutePythonPath + "\\python\\Miniconda3\\python.exe";
+            jsonFilePath = absolutePythonPath + "\\paramFile\\gridSearchParam.json";
+        } else {
+            scriptPath = dirPath + "\\python\\getGridSearchResultR.py";
+            pythonPath = dirPath + "\\python\\Miniconda3\\python.exe";
+            jsonFilePath = dirPath + "\\paramFile\\gridSearchParam.json";
         }
-        String jsonFilePath = pythonPath + "\\paramFile\\gridSearchParam.json";
 //        String jsonFilePath = pythonPath + "\\paramFile\\gridSearchParam.json";
         String[] args1 = new String[]
-                {pythonPath + "\\python\\Miniconda3\\python.exe", pythonPath + "\\python\\getGridSearchResultR.py", strMachineLearns, strParamData, excelFilePath, jsonFilePath};
+                {pythonPath, scriptPath, strMachineLearns, strParamData, excelFilePath, jsonFilePath};
         try {
             Process proc = Runtime.getRuntime().exec(args1);
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream(), "GBK"));
@@ -153,12 +168,18 @@ public class PythonUtilities {
 
     public static void runPreprocess(String inputTifPath, String outTifPath, String xyPath, String extractPath) {
         ArrayList<String> resultStr = new ArrayList<>();
-        String pythonPath = System.getProperty("user.dir");
+        String dirPath = System.getProperty("user.dir");
+        String scriptPath = "";
+        String pythonPath = "";
         if (isAbsolutePath) {
-            pythonPath = "E:\\TeacherLiu\\snow";
+            scriptPath = absolutePyScriptPath + "\\getFeatureTable.py";
+            pythonPath = absolutePythonPath + "\\python\\Miniconda3\\python.exe";
+        } else {
+            scriptPath = dirPath + "\\python\\getFeatureTable.py";
+            pythonPath = dirPath + "\\python\\Miniconda3\\python.exe";
         }
         String[] args1 = new String[]
-                {pythonPath + "\\python\\Miniconda3\\python.exe", pythonPath + "\\python\\getFeatureTable.py", inputTifPath, outTifPath, xyPath, extractPath};
+                {pythonPath, scriptPath, inputTifPath, outTifPath, xyPath, extractPath};
         try {
             Process proc = Runtime.getRuntime().exec(args1);
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream(), "GBK"));
@@ -177,13 +198,19 @@ public class PythonUtilities {
 
     @Deprecated
     public static Map runCorr(String extractPath) {
-        String pythonPath = System.getProperty("user.dir");
+        String dirPath = System.getProperty("user.dir");
+        String scriptPath = "";
+        String pythonPath = "";
         if (isAbsolutePath) {
-            pythonPath = "E:\\TeacherLiu\\snow";
+            scriptPath = absolutePyScriptPath + "\\corr.py";
+            pythonPath = absolutePythonPath + "\\python\\Miniconda3\\python.exe";
+        } else {
+            scriptPath = dirPath + "\\python\\corr.py";
+            pythonPath = dirPath + "\\python\\Miniconda3\\python.exe";
         }
         Map<String, Double> corrMap = new HashMap<>();
         String[] args1 = new String[]
-                {pythonPath + "\\python\\Miniconda3\\python.exe", pythonPath + "\\python\\corr.py", extractPath};
+                {pythonPath, scriptPath, extractPath};
         try {
             Process proc = Runtime.getRuntime().exec(args1);
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream(), "GBK"));
@@ -209,13 +236,19 @@ public class PythonUtilities {
     }
 
     public static Map runCoefficient(String extractPath) {
-        String pythonPath = System.getProperty("user.dir");
+        String dirPath = System.getProperty("user.dir");
+        String scriptPath = "";
+        String pythonPath = "";
         if (isAbsolutePath) {
-            pythonPath = "E:\\TeacherLiu\\snow";
+            scriptPath = absolutePyScriptPath + "\\corr.py";
+            pythonPath = absolutePythonPath + "\\python\\Miniconda3\\python.exe";
+        } else {
+            scriptPath = dirPath + "\\python\\corr.py";
+            pythonPath = dirPath + "\\python\\Miniconda3\\python.exe";
         }
 //        Map<String, List<Double>> corrMap = new HashMap<>();
         String[] args1 = new String[]
-                {pythonPath + "\\python\\Miniconda3\\python.exe", pythonPath + "\\python\\corr.py", extractPath};
+                {pythonPath, scriptPath, extractPath};
         try {
             Process proc = Runtime.getRuntime().exec(args1);
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream(), "GBK"));
@@ -224,7 +257,7 @@ public class PythonUtilities {
             while ((line = in.readLine()) != null) {
                 jsonObject = JSON.parseObject(line);
             }
-            if (jsonObject != null){
+            if (jsonObject != null) {
                 return jsonObject.getInnerMap();
             }
             in.close();

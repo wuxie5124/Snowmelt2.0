@@ -125,7 +125,8 @@ public class PanelImgSetting extends JPanel {
                 paramAndTiffs.clear();
                 for (ParamData paramData : paramDatas) {
                     if (paramData.getCheck()) {
-                        String tifName = paramMap.get(paramData.getParamName());
+//                        String tifName = paramMap.get(paramData.getParamName());
+                        String tifName = paramData.getParamName();
                         File subfile = new File(path + File.separator + tifName + ".tif");
                         if (subfile.exists()) {
                             paramAndTiffs.add(new ParamAndTiff(paramData.getParamName(), subfile.getName(), subfile.getPath()));

@@ -27,14 +27,18 @@ public class SnowmeltDialog extends JFrame {
 
     JMenuItem itemClassAndRegressor;
     JMenuItem itemPreprocess;
+    JMenuItem itemModelBuild;
+    JMenuItem itemResultOutput;
+//    JMenuItem item
+    JMenuItem itemNorAndGridEx;
     JMenuItem itemMethodConstruct;
     JMenuItem itemModelParamsSe;
     JMenuItem itemFeatureSet;
     JMenuItem itemModelTrain;
     JMenuItem itemImgSetting;
     JMenuItem itemCalculate;
-    JMenuItem item8;
-    JMenuItem item9;
+    JMenuItem itemRegressor;
+    JMenuItem itemClassifier;
     public static MachineLearn[] MACHINE_LEARNS = new MachineLearn[]{new XGBoost(), new GBDT(), new SVM(), new RF(), new KNN()};
     public ArrayList<MachineLearn> machineLearns;
 //    private ArrayList<String> checkedParams;
@@ -50,7 +54,7 @@ public class SnowmeltDialog extends JFrame {
         removeEvent();
         addEvent();
         this.setSize(650, 600);
-        this.setTitle("基于STACKING模型融雪洪灾预测模型");
+        this.setTitle("基于Stacking的气象灾害风险等级预测软件V1.0");
         this.setVisible(true);
     }
 
@@ -72,38 +76,46 @@ public class SnowmeltDialog extends JFrame {
         this.panelConsole = new PanelConsole();
         this.labelRemind = new JLabel("欢迎使用");
         this.itemClassAndRegressor = new JMenu("预测类型");
-        this.itemPreprocess = new JMenuItem("预处理");
+        this.itemPreprocess = new JMenu("预处理");
+        this.itemModelBuild = new JMenu("模型构建");
+        this.itemResultOutput = new JMenu("结果输出");
+
+        this.itemRegressor = new JMenuItem("回归");
+        this.itemClassifier = new JMenuItem("分类");
+
+        this.itemNorAndGridEx = new JMenuItem("归一化与栅格值提取");
+
         this.itemMethodConstruct = new JMenuItem("方法构建");
         this.itemModelParamsSe = new JMenuItem("模型参数设置");
         this.itemFeatureSet = new JMenuItem("特征设置");
         this.itemModelTrain = new JMenuItem("模型参数选择");
+
         this.itemImgSetting = new JMenuItem("影像选择");
         this.itemCalculate = new JMenuItem("方法执行");
-        this.item8 = new JMenuItem("回归");
-        this.item9 = new JMenuItem("分类");
 
-        JMenuBar menuBar = new JMenuBar();//创建菜单栏对象
-        JMenu menu1 = new JMenu("融雪洪灾点预测");// 创建菜单对象
+        JMenuBar jMenuBar = new JMenuBar();
+        jMenuBar.add(itemClassAndRegressor);
+        jMenuBar.add(itemPreprocess);
+        jMenuBar.add(itemModelBuild);
+        jMenuBar.add(itemResultOutput);
 
-        menuBar.add(menu1);
-        itemClassAndRegressor.add(item8);
-        itemClassAndRegressor.add(item9);
+        itemClassAndRegressor.add(itemRegressor);
+//        itemClassAndRegressor.add(itemClassifier);
 
-        menu1.add(itemClassAndRegressor);
-        menu1.addSeparator();//在菜单项中间添加分界线
+        itemPreprocess.add(itemNorAndGridEx);
 
-        menu1.add(itemPreprocess);
-        menu1.add(itemMethodConstruct);
-        menu1.add(itemModelParamsSe);
-        menu1.add(itemFeatureSet);
-        menu1.add(itemModelTrain);
-        menu1.add(itemImgSetting);
-        menu1.add(itemCalculate);
+        itemModelBuild.add(itemMethodConstruct);
+        itemModelBuild.add(itemModelParamsSe);
+        itemModelBuild.add(itemFeatureSet);
+        itemModelBuild.add(itemModelTrain);
+
+        itemResultOutput.add(itemImgSetting);
+        itemResultOutput.add(itemCalculate);
 
         //
         itemMethodConstruct.setAccelerator(KeyStroke.getKeyStroke('A'));
         itemModelParamsSe.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_MASK));//添加热键
-        this.setJMenuBar(   menuBar);
+        this.setJMenuBar(jMenuBar);
     }
 
     private void initComponentStatus() {
@@ -138,7 +150,7 @@ public class SnowmeltDialog extends JFrame {
 
     private void addEvent() {
         itemMethodConstruct.addActionListener(menuItemAction);
-        itemPreprocess.addActionListener(menuItemAction);
+        itemNorAndGridEx.addActionListener(menuItemAction);
         itemModelParamsSe.addActionListener(menuItemAction);
         itemFeatureSet.addActionListener(menuItemAction);
         itemModelTrain.addActionListener(menuItemAction);
@@ -153,7 +165,7 @@ public class SnowmeltDialog extends JFrame {
     ActionListener menuItemAction = e -> {
         if (e.getSource() == itemClassAndRegressor) {
 
-        }else if(e.getSource() == itemPreprocess){
+        }else if(e.getSource() == itemNorAndGridEx){
             this.panelPreprocess = new PanelPreProcess(this);
             replace(this.panelContent,this.panelPreprocess);
         } else if (e.getSource() == itemMethodConstruct) {
